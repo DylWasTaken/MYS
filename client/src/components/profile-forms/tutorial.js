@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Map from "../map/Map";
@@ -12,7 +12,7 @@ const Tutorial = ({ createProfile, history }) => {
     swim: 0,
   });
 
-  const [run, cycle, swim] = totalStats;
+ //const [run, cycle, swim] = totalStats;
 
   const onSubmit = (e) => {
     e.preventDefault();

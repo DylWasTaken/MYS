@@ -12,7 +12,7 @@ import Tutorial from './components/profile-forms/tutorial';
 import Profiles from './components/profiles/Profiles';
 import Posts from './components/posts/Posts';
 import Profile from './components/profile/Profile';
-import Map from './components/map/Map';
+//import Map from './components/map/Map';
 //Redux
 import { Provider } from "react-redux";
 import store from "./store";
