@@ -1,0 +1,36 @@
+{
+  "name": "mys",
+  "version": "1.0.0",
+  "description": "Step tracker",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client&& npm run build --prefix client"
+  },
+  "keywords": [
+    "MERN",
+    "Stack"
+  ],
+  "author": "Dylan Mahowa",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.0",
+    "gravatar": "^1.8.1",
+    "jsonwebtoken": "^8.5.1",
+    "mapbox-gl-draw-circle": "^1.1.2",
+    "mongoose": "^5.9.24",
+    "react-map-gl": "^5.2.7",
+    "react-scripts": "^3.4.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
+  }
+}

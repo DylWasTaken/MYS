@@ -1,0 +1,4 @@
+{"mongoURI": 
+    "mongodb+srv://Dylan:water1234@mindyourstep.etsst.azure.mongodb.net/<dbname>?retryWrites=true&w=majority",
+"jwtSecret": "supersecrettokennotelling"
+}
