@@ -6,7 +6,6 @@ const User = require("../../models/Users");
 //const Profile = require("../../models/Profile");
 const Log = require("../../models/Logs");
 
-
 //@route    POST api/log
 //desc      log run/swim/cycle
 //@access   Private
@@ -15,15 +14,17 @@ router.post("/", auth, async (req, res) => {
     const user = await User.findById(req.user.id).select("-password");
     const newLog = new Log({
       user: req.user.id,
+      walk: req.body.walk,
       run: req.body.run,
       cycle: req.body.cycle,
-      swim: req.body.swim
+      swim: req.body.swim,
+      horseRiding: req.body.horseRiding,
     });
     const saveme = await newLog.save();
     res.json(saveme);
   } catch (err) {
     console.error(err.message);
-//    res.status(500).send("Server Error");
+    //    res.status(500).send("Server Error");
   }
 });
 

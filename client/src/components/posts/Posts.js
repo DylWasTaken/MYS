@@ -1,28 +1,105 @@
-import React, {Fragment, useEffect} from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-//import Spinner from '../layout/Spinner';
-import {getPosts} from '../../actions/post';
-//import { profile_url } from 'gravatar';
+import React, { Fragment, useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { setAlert } from "../../actions/alert";
+import { addPost } from "../../actions/post";
 
-const Posts = ({getPosts, post: {posts, loading}})=> {
-    useEffect(()=> {
-        getPosts();
-    }, [getPosts]);
-    return (
-        <Fragment>
-           Under construction
-        </Fragment>
-    )
-}
+const Posts = ({ addPost, setAlert }) => {
+  const [formData, setFormData] = useState({
+    walk: 0,
+    run: 0,
+    cycle: 0,
+    swim: 0,
+    horseRiding: 0,
+  });
+
+  const { walk, run, cycle, swim, horseRiding } = formData;
+  const onSubmit = (e) => {
+    addPost({ walk, run, cycle, swim, horseRiding });
+  };
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  return (
+    <Fragment>
+      <form onSubmit={(e) => onSubmit(e)}>
+        <div
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            width: "100%",
+          }}
+        >
+          <div style={{ display: "inline-block", padding: "1em" }}>
+            Walking
+            <i className="fas fa-walking"></i>
+            <input
+              type="number"
+              value={walk}
+              name="walk"
+              onChange={(e) => onChange(e)}
+              min="0"
+              max="43"
+            />
+          </div>
+          <div style={{ display: "inline-block", padding: "1em" }}>
+            Running
+            <i className="fas fa-running"></i>
+            <input
+              type="number"
+              value={run}
+              name="run"
+              onChange={(e) => onChange(e)}
+              min="0"
+              max="43"
+            />
+          </div>
+          <div style={{ display: "inline-block", padding: "1em" }}>
+            Cycling
+            <i className="fas fa-biking"></i>
+            <input
+              type="number"
+              value={cycle}
+              name="cycle"
+              onChange={(e) => onChange(e)}
+              min="0"
+              max="86"
+            />
+          </div>
+          <div style={{ display: "inline-block", padding: "1em" }}>
+            Swimming
+            <i className="fas fa-swimmer"></i>
+            <input
+              type="number"
+              value={swim}
+              name="swim"
+              onChange={(e) => onChange(e)}
+              min="0"
+              max="43"
+            />
+          </div>
+          <div style={{ display: "inline-block", padding: "1em" }}>
+            Horse Riding
+            <i className="fas fa-horse"></i>
+            <input
+              type="number"
+              value={horseRiding}
+              name="horseRiding"
+              onChange={(e) => onChange(e)}
+              min="0"
+              max="43"
+            />
+          </div>
+        </div>
+        <input type="submit" className="btn btn-primary" value="Submit" />
+      </form>
+    </Fragment>
+  );
+};
 
 Posts.propTypes = {
-    getPosts: PropTypes.func.isRequired,
-    posts: PropTypes.object.isRequired
-}
+  addPost: PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired,
+};
 
-const mapStateToProps = state => ({
-    post: state.post
-});
-
-export default connect(mapStateToProps, {getPosts})(Posts);
+export default connect(null, { addPost, setAlert })(Posts);

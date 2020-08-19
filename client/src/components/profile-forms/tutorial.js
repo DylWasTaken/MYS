@@ -7,12 +7,14 @@ import { createProfile } from "../../actions/profile";
 
 const Tutorial = ({ createProfile, history }) => {
   const totalStats = useState({
+    walk: 0,
     run: 0,
     cycle: 0,
     swim: 0,
+    horseRiding: 0,
   });
 
- //const [run, cycle, swim] = totalStats;
+  //const [run, cycle, swim] = totalStats;
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -23,24 +25,36 @@ const Tutorial = ({ createProfile, history }) => {
     <Fragment>
       <div>
         <Map />
-        <form
-          className="form"
-          onSubmit={(e) => onSubmit(e)}
-          style={{ display: "inline-block" }}
-        >
-          <div className="form-group" style={{ display: "inline-block" }}>
-            <label> Distance run in km:</label>
-            <input type="number" name="run" min="1" max="43" />
+        <form onSubmit={(e) => onSubmit(e)}>
+          <div
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              width: "100%",
+            }}
+          >
+            <div style={{ display: "inline-block", padding: "1em" }}>
+              <i class="fas fa-walking"></i>
+              <input type="number" name="walk" min="1" max="43" />
+            </div>
+            <div style={{ display: "inline-block", padding: "1em" }}>
+              <i class="fas fa-running"></i>
+              <input type="number" name="run" min="1" max="43" />
+            </div>
+            <div style={{ display: "inline-block", padding: "1em" }}>
+              <i class="fas fa-biking"></i>
+              <input type="number" name="cycle" min="1" max="43" />
+            </div>
+            <div style={{ display: "inline-block", padding: "1em" }}>
+              <i class="fas fa-swimmer"></i>
+              <input type="number" name="swim" min="1" max="43" />
+            </div>
+            <div style={{ display: "inline-block", padding: "1em" }}>
+              <i class="fas fa-horse"></i>
+              <input type="number" name="horseRiding" min="1" max="43" />
+            </div>
           </div>
-          <div className="form-group">
-            <label>Distance cycled in km:</label>
-            <input type="number" name="cycle" min="1" max="86" />
-          </div>
-          <div className="form-group">
-            <label>Distance swam in km:</label>
-            <input type="number" name="swim" min="1" max="34" />
-          </div>
-          <input type="submit" className="btn btn-primary" value="Okay" />
+          <input type="submit" className="btn btn-primary" value="Submit" />
         </form>
       </div>
     </Fragment>

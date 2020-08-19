@@ -10,7 +10,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <li>
         <Link to="/leaderboard">
           {" "}
-          <i class="fas fa-fire-alt"></i>
+          <i className="fas fa-fire-alt"></i>
           <span className="hide-sm"> Leaderboard</span>
         </Link>
       </li>
@@ -29,7 +29,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       </li>
       <li>
         <Link onClick={logout} to="#!">
-          <i className={"fas fa-sign-out-alt"}></i>
+          <i className={"fas fa-sign-out-alt fa-flip-horizontal"}></i>
           <span className="hide-sm"> Logout</span>
         </Link>
       </li>
@@ -39,14 +39,22 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestlinks = (
     <ul>
       <li>
-        <i className="hide-sm" class="fas fa-fire-alt"></i>
-        <Link to="/leaderboard">Leaderboard</Link>
+        <Link to="/leaderboard">
+          <i className="fas fa-fire-alt"></i>
+          <b className="hide-sm">Leaderboard</b>
+        </Link>
       </li>
       <li>
-        <Link to="/register">Register</Link>
+        <Link to="/register">
+          <i className="far fa-address-card"></i>
+          <b className="hide-sm">Register</b>
+        </Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/login">
+          <i className={"fas fa-sign-out-alt "}></i>
+          <b className="hide-sm">Login</b>
+        </Link>
       </li>
     </ul>
   );

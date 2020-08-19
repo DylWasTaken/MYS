@@ -6,14 +6,20 @@ const LogSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "users",
   },
-  run:{
-    type: Number
+  walk: {
+    type: Number,
   },
-  cycle:{
-    type: Number
+  run: {
+    type: Number,
   },
-  swim:{
-    type: Number
+  cycle: {
+    type: Number,
+  },
+  swim: {
+    type: Number,
+  },
+  horseRiding: {
+    type: Number,
   },
   date: {
     type: Date,
