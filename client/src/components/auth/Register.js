@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { setAlert } from "../../actions/alert";
-import { register } from '../../actions/auth';
+import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
@@ -22,17 +22,48 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     if (password !== password2) {
       setAlert("Passwords do not match", "danger");
     } else {
-      register({name, email, password});
+      register({ name, email, password });
     }
   };
 
-  if (isAuthenticated){
-    return <Redirect to='/dashboard'/>;
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
   }
 
   return (
     <Fragment>
       <h1 className="large text-primary">Sign Up</h1>
+      <div>
+        Mind Your Step is an annual charity event in memory of Jamie Margetts,
+        who took his own life in October 2016, aged 41. We want to raise
+        awareness of mental health issues, bring people together and raise money
+        for Mind. This year we’re asking you to get active in September and
+        record the distances that you cover on foot, by bike, in water or on a
+        horse, micro-scooter or whatever you can find, in the hope that together
+        we can reach from Derby to the Moon (384,400km).
+      </div>
+      <div>
+        We’ve set up this website to chart our collective progress. Register as
+        a user, and manually enter how far you travel between 1st and 30th
+        September. See how you stack up in the leader board, and how close we
+        are to achieving our collective goal. If you want to take part, we’d be
+        grateful for donations to Mind via our JustGiving page:
+        <a
+          target="_blank"
+          href="https://www.justgiving.com/team/MindYourStep20"
+        >
+          {" "}
+          https://www.justgiving.com/team/MindYourStep20{" "}
+        </a>
+      </div>{" "}
+      <div>
+        The more the merrier – please encourage your friends and family to join
+        in, donate or sponsor you. (It’s a long way to the moon, after all.)
+        Please visit our website at www.mindyourstepwalk.co.uk or visit our
+        Facebook page for updates, including details of spot prizes we’re
+        offering in September. We’d love you to share photos and stories of your
+        activities through Facebook.
+      </div>
       <p className="lead">
         <i className="fas fa-user"></i> Create Your Account
       </p>
@@ -94,11 +125,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
 
-const mapStateToProps =  state => ({
-  isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { setAlert, register })(Register);

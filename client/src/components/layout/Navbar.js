@@ -41,19 +41,19 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <li>
         <Link to="/leaderboard">
           <i className="fas fa-fire-alt"></i>
-          <b className="hide-sm">Leaderboard</b>
+          <span className="hide-sm">Leaderboard</span>
         </Link>
       </li>
       <li>
         <Link to="/register">
           <i className="far fa-address-card"></i>
-          <b className="hide-sm">Register</b>
+          <span className="hide-sm">Register</span>
         </Link>
       </li>
       <li>
         <Link to="/login">
           <i className={"fas fa-sign-out-alt "}></i>
-          <b className="hide-sm">Login</b>
+          <span className="hide-sm">Login</span>
         </Link>
       </li>
     </ul>

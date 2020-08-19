@@ -1,12 +1,10 @@
 import axios from "axios";
-import { setAlert } from "./alert";
 import { GET_POSTS, POST_ERROR, ADD_POST } from "./types";
 
-//Get posts
+//Get all posts
 export const getPosts = () => async (dispatch) => {
   try {
     const res = await axios.get("/api/log");
-
     dispatch({
       type: GET_POSTS,
       payload: res.data,
@@ -43,7 +41,6 @@ export const addPost = ({ walk, run, cycle, swim, horseRiding }) => async (
       type: ADD_POST,
       payload: res.data,
     });
-    dispatch(setAlert("Activities Added", "success"));
   } catch (err) {
     dispatch({
       type: POST_ERROR,
