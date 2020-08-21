@@ -14,14 +14,13 @@ const Tutorial = ({ createProfile, history }) => {
     horseRiding: 0,
   });
 
-  //const [run, cycle, swim] = totalStats;
-
   const onSubmit = (e) => {
     e.preventDefault();
     createProfile(totalStats, history);
   };
 
   return (
+  
     <Fragment>
       <div>
         <Map />
@@ -57,7 +56,7 @@ const Tutorial = ({ createProfile, history }) => {
           <input type="submit" className="btn btn-primary" value="Submit" />
         </form>
       </div>
-    </Fragment>
+    </Fragment> 
   );
 };
 

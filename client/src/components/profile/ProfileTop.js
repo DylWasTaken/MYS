@@ -2,12 +2,17 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 
 const ProfileTop = ({
-  profile: { run, cycle, swim, badges },
+  profile: { walk ,run, cycle, swim, horseRiding, badges },
 }) => {
   return (
     <div>
       <div style={{ display: "inline-block" }}>
       <div style={{ justifyContent: "space-evenly" }}>
+      <div style={{ display: "inline-block" }}>
+                <p>
+                  <i class="fas fa-walking"></i>: {walk}
+                </p>
+              </div>{" "}
               <div style={{ display: "inline-block" }}>
                 <p>
                   <i class="fas fa-running"></i>: {run}
@@ -21,6 +26,11 @@ const ProfileTop = ({
               <div style={{ display: "inline-block" }}>
                 <p>
                   <i class="fas fa-swimmer"></i>: {swim}
+                </p>
+              </div>
+              <div style={{ display: "inline-block" }}>
+                <p>
+                  <i class="fas fa-horse"></i>: {horseRiding}
                 </p>
               </div>
             </div>

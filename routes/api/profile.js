@@ -13,7 +13,7 @@ router.get("/me", auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.user.id,
-    }).populate("user", ['name', 'avatar']);
+    }).populate("user", ["name", "avatar"]);
     if (!profile) {
       return res.status(400).json({ msg: "There is no profile for this user" });
     }
@@ -31,10 +31,11 @@ router.get("/me", auth, async (req, res) => {
 router.post("/", auth, async (req, res) => {
   const profileFields = {};
   profileFields.user = req.user.id;
+  profileFields.walk = 0;
   profileFields.run = 0;
-  profileFields.swim = 0;
   profileFields.cycle = 0;
-
+  profileFields.swim = 0;
+  profileFields.horseRiding = 0;
 
   try {
     let profile = await Profile.findOne({ user: req.user.id });
@@ -63,7 +64,7 @@ router.post("/", auth, async (req, res) => {
 //@access public
 router.get("/", async (req, res) => {
   try {
-    const profiles = await Profile.find().populate("user",['name', 'avatar']);
+    const profiles = await Profile.find().populate("user", ["name", "avatar"]);
     res.json(profiles);
   } catch (err) {
     console.error(err.message);
@@ -78,7 +79,7 @@ router.get("/user/:user_id", async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.params.user_id,
-    }).populate("user", ['name', 'avatar']);
+    }).populate("user", ["name", "avatar"]);
     if (!profile)
       return res.status(400).json({ msg: "There is no profile for this user" });
     res.json(profile);
@@ -94,20 +95,19 @@ router.get("/user/:user_id", async (req, res) => {
 //@route  DELETE api/profile
 //@desc   Delete profile, user & logs
 //@access Private
-router.delete("/", auth , async (req, res) => {
+router.delete("/", auth, async (req, res) => {
   try {
     //todo remove user logs
 
     //Remove profile
-    await Profile.findOneAndRemove({user: req.user.id});
+    await Profile.findOneAndRemove({ user: req.user.id });
     //Remove user
-    await User.findOneAndRemove({_id: req.user.id});
-    res.json({msg:'User deleted'});
+    await User.findOneAndRemove({ _id: req.user.id });
+    res.json({ msg: "User deleted" });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
 });
-
 
 module.exports = router;

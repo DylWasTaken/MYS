@@ -12,8 +12,16 @@ const Landing = ({ isAuthenticated }) => {
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
-         <div style={{position:"relative"}}><Map /></div> 
+          <div style={{ position: "relative" }}>
+            <Map />
+          </div>
           <h1 className="x-large">Mind your step: step tracker</h1>
+          <div style={{ display: "inline-block" }}>
+            {" "}
+            <a target="_blank" href="hhttps://www.facebook.com/MindYourStepUK">
+              <i class="fab fa-facebook-square"></i>
+            </a>
+          </div>
           <p className="lead">
             Track your runs, swim and bike rides, and compete for badges
           </p>
@@ -32,7 +40,7 @@ const Landing = ({ isAuthenticated }) => {
 };
 
 Landing.propTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({
