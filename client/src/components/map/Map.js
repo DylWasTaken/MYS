@@ -63,7 +63,7 @@ export default function Map() {
       >
         <Marker key={'RPS Derby'} latitude={52.928792} longitude={-1.4677267}> 
    
-        <i class="fas fa-flag" style={{color:"#00aaff"}}></i>
+        <i className="fas fa-flag" style={{color:"#00aaff"}}></i>
         </Marker>
         Global distance covered
       </ReactMapGL>

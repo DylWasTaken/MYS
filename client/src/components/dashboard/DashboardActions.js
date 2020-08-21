@@ -8,14 +8,14 @@ const DashboardActions = ({
   },
 }) => {
   return (
-    <div class="dash-buttons">
+    <div className="dash-buttons">
       {/*   <Link to="/edit-profile" class="btn btn-light">  
                 Edit profile
     </Link>*/}
-      <Link to={`/profile/${_id}`} class="btn btn-light">
+      <Link to={`/profile/${_id}`} className="btn btn-light">
         View my progress
       </Link>
-      <Link to="/Posts" class="btn btn-light">
+      <Link to="/Posts" className="btn btn-light">
         View everyone's progress
       </Link>
     </div>
