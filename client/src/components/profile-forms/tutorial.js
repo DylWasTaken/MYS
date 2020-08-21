@@ -33,23 +33,23 @@ const Tutorial = ({ createProfile, history }) => {
             }}
           >
             <div style={{ display: "inline-block", padding: "1em" }}>
-              <i class="fas fa-walking"></i>
+              <i className="fas fa-walking"></i>
               <input type="number" name="walk" min="1" max="43" />
             </div>
             <div style={{ display: "inline-block", padding: "1em" }}>
-              <i class="fas fa-running"></i>
+              <i className="fas fa-running"></i>
               <input type="number" name="run" min="1" max="43" />
             </div>
             <div style={{ display: "inline-block", padding: "1em" }}>
-              <i class="fas fa-biking"></i>
+              <i className="fas fa-biking"></i>
               <input type="number" name="cycle" min="1" max="43" />
             </div>
             <div style={{ display: "inline-block", padding: "1em" }}>
-              <i class="fas fa-swimmer"></i>
+              <i className="fas fa-swimmer"></i>
               <input type="number" name="swim" min="1" max="43" />
             </div>
             <div style={{ display: "inline-block", padding: "1em" }}>
-              <i class="fas fa-horse"></i>
+              <i className="fas fa-horse"></i>
               <input type="number" name="horseRiding" min="1" max="43" />
             </div>
           </div>

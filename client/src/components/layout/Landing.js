@@ -18,8 +18,8 @@ const Landing = ({ isAuthenticated }) => {
           <h1 className="x-large">Mind your step: step tracker</h1>
           <div style={{ display: "inline-block" }}>
             {" "}
-            <a target="_blank" href="hhttps://www.facebook.com/MindYourStepUK">
-              <i class="fab fa-facebook-square"></i>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/MindYourStepUK">
+              <i className="fab fa-facebook-square fa-5x"></i>
             </a>
           </div>
           <p className="lead">
