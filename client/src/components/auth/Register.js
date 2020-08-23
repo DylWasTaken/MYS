@@ -51,6 +51,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <a
           target="_blank"
           href="https://www.justgiving.com/team/MindYourStep20"
+          rel="noopener noreferrer"
         >
           {" "}
           https://www.justgiving.com/team/MindYourStep20{" "}
@@ -63,6 +64,18 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         Facebook page for updates, including details of spot prizes we’re
         offering in September. We’d love you to share photos and stories of your
         activities through Facebook.
+      </div>
+      <div>
+        <b>We ask that you make a small donation of £5-10 to Mind for signing up, paid through the our just giving page:
+        </b>
+        <br/>
+        <a
+          target="_blank"
+          href="https://justgiving.com/fundraising/2020mys"
+          rel="noopener noreferrer"
+        >
+         Justgiving.com/fundraising/2020mys
+        </a>
       </div>
       <p className="lead">
         <i className="fas fa-user"></i> Create Your Account
