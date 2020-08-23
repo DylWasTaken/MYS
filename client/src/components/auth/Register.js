@@ -66,15 +66,29 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         activities through Facebook.
       </div>
       <div>
-        <b>We ask that you make a small donation of £5-10 to Mind for signing up, paid through the our just giving page:
+        Please do exercise with others, but consider the latest guidance on
+        Covid-19.
+      </div>
+      <div>
+        We’re taking your name and email address, by signing up you agree to us
+        keeping this information for the duration of the event (September 2020).
+        We will not share your contact details with anyone else. We will only
+        contact you to provide updates on the collective progress of all those
+        taking part as well as announcing any spot prize winners during the
+        event.
+      </div>
+      <div>
+        <b>
+          We ask that you make a small donation of £5-10 to Mind for signing up,
+          paid through the our just giving page:
         </b>
-        <br/>
+        <br />
         <a
           target="_blank"
           href="https://justgiving.com/fundraising/2020mys"
           rel="noopener noreferrer"
         >
-         Justgiving.com/fundraising/2020mys
+          Justgiving.com/fundraising/2020mys
         </a>
       </div>
       <p className="lead">
