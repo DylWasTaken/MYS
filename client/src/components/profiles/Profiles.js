@@ -8,17 +8,19 @@ import ProfileItem from "./ProfileItem";
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
     getProfiles();
-  }, [getProfiles] );
+  }, [getProfiles]);
   return (
     <Fragment>
       {loading ? (
         <Spinner />
       ) : (
         <Fragment>
-          <h1 className="large text-primary">Leaderboards</h1>
+          <h1 className="large text-primary">Leader board</h1>
           <div className="inline-block">
             {profiles.length > 0 ? (
-              profiles.map(profile=>(<ProfileItem key={profile._id} profile={profile} />))
+              profiles.map((profile) => (
+                <ProfileItem key={profile._id} profile={profile} />
+              ))
             ) : (
               <h4> No profiles made yet...</h4>
             )}
@@ -31,7 +33,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 
 Profiles.propTypes = {
   getProfiles: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

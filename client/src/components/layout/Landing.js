@@ -16,11 +16,32 @@ const Landing = ({ isAuthenticated }) => {
             <Map />
           </div>
           <h1 className="x-large">Mind your step: step tracker</h1>
-          <div style={{ display: "inline-block" }}>
-            {" "}
-            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/MindYourStepUK">
-              <i className="fab fa-facebook-square fa-5x"></i>
+          <div style={{ display: "inline-flex", justifyContent: "space-evenly" }}>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.facebook.com/MindYourStepUK"
+            >
+              <span style={{ color: "#3c5a99" }}>
+                <i
+                  className="fab fa-facebook-square fa-3x"
+                  style={{ colour: "Blue" }}
+                ></i>
+              </span>
             </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.mind.org.uk/"
+              style={{ padding: "0%", margin: "0%" }}
+            >
+              <img
+                src="mind-logo.svg"
+                alt="Minds charity"
+                style={{ maxHeight: "3em", maxWidth:"7em" }}
+              />
+            </a>
+   
           </div>
           <p className="lead">
             Track your runs, swim and bike rides, and compete for badges
