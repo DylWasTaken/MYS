@@ -22,6 +22,13 @@ const Tutorial = ({ createProfile, history }) => {
   return (
   
     <Fragment>
+        <div>
+          <b>When the site goes live:</b>
+
+          <div>Data entered into the entry boxes below will be calculated to show how far you have traveled either via walking, running, cycling, swimming or horse riding. </div>
+          <div>The top runner for each week will get a badge added to their profile, along with badges added along the way for people who complete certain secret tasks</div>
+        </div>
+      
       <div>
         <Map />
         <form onSubmit={(e) => onSubmit(e)}>
