@@ -55,7 +55,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <nav className="navbar bg-dark">
       <h1>
-        <Link to="/">Mind your Step: Distance tracker</Link>
+        <Link to="/">Mind Your Step: Distance tracker</Link>
       </h1>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestlinks}</Fragment>
