@@ -22,7 +22,7 @@ const Tutorial = ({ createProfile, history }) => {
   return (
   
     <Fragment>
-        <div>
+     {/*   <div>
           <b>When the site goes live:</b>
 
           <div>Data entered into the entry boxes below will be calculated to show how far you have traveled either via walking, running, cycling, swimming or horse riding. </div>
@@ -63,7 +63,10 @@ const Tutorial = ({ createProfile, history }) => {
           <input type="submit" className="btn btn-primary" value="Submit" />
         </form>
       </div>
-    </Fragment> 
+      */}
+      Awaiting Launch
+          </Fragment> 
+        
   );
 };
 

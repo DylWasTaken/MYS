@@ -15,7 +15,7 @@ const Landing = ({ isAuthenticated }) => {
           <div style={{ position: "relative" }}>
             <Map />
           </div>
-          <h1 className="x-large">Mind your step: Distance tracker</h1>
+          <h1 className="x-large">Mind Your Step: Distance Tracker</h1>
           <div style={{ display: "inline-flex", justifyContent: "space-evenly" }}>
             <a
               target="_blank"
@@ -44,7 +44,7 @@ const Landing = ({ isAuthenticated }) => {
    
           </div>
           <p className="lead">
-            Track your sporty activies and compete for badges
+            Track your walks, runs, swims, bike rides, and horse rides and compete for badges
           </p>
           <div className="buttons">
             <Link to="/register" className="btn btn-primary">
