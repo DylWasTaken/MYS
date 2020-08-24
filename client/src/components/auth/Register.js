@@ -34,62 +34,75 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     <Fragment>
       <h1 className="large text-primary">Sign Up</h1>
       <div>
-        Mind Your Step is an annual charity event in memory of Jamie Margetts,
-        who took his own life in October 2016, aged 41. We want to raise
-        awareness of mental health issues, bring people together and raise money
-        for Mind. This year we’re asking you to get active in September and
-        record the distances that you cover on foot, by bike, in water or on a
-        horse, micro-scooter or whatever you can find, in the hope that together
-        we can reach from Derby to the Moon (384,400km).
-      </div>
-      <div>
-        We’ve set up this website to chart our collective progress. Register as
-        a user, and manually enter how far you travel between 1st and 30th
-        September. See how you stack up in the leader board, and how close we
-        are to achieving our collective goal. If you want to take part, we’d be
-        grateful for donations to Mind via our JustGiving page:
-        <a
-          target="_blank"
-          href="https://www.justgiving.com/team/MindYourStep20"
-          rel="noopener noreferrer"
-        >
-          {" "}
-          https://www.justgiving.com/team/MindYourStep20{" "}
-        </a>
-      </div>{" "}
-      <div>
-        The more the merrier – please encourage your friends and family to join
-        in, donate or sponsor you. (It’s a long way to the moon, after all.)
-        Please visit our website at www.mindyourstepwalk.co.uk or visit our
-        Facebook page for updates, including details of spot prizes we’re
-        offering in September. We’d love you to share photos and stories of your
-        activities through Facebook.
-      </div>
-      <div>
-        Please do exercise with others, but consider the latest guidance on
-        Covid-19.
-      </div>
-      <div>
-        We’re taking your name and email address, by signing up you agree to us
-        keeping this information for the duration of the event (September 2020).
-        We will not share your contact details with anyone else. We will only
-        contact you to provide updates on the collective progress of all those
-        taking part as well as announcing any spot prize winners during the
-        event.
-      </div>
-      <div>
+        <p style={{ paddingBottom: "1%" }}>
+          Mind Your Step is an annual charity event in memory of Jamie Margetts,
+          who took his own life in October 2016, aged 41. We want to raise
+          awareness of mental health issues, bring people together and raise
+          money for Mind.
+        </p>
+        <p style={{ paddingBottom: "1%" }}>
+          This year we’re asking you to get active in September and record the
+          distances that you cover on foot, by bike, in water or on a horse,
+          micro-scooter or whatever you can find, in the hope that together we
+          can reach from Derby to the Moon (384,400km).
+        </p>
+        <p style={{ paddingBottom: "1%" }}>
+          We’ve set up this website to chart our collective progress. Register
+          as a user, and manually enter how far you travel between 1st and 30th
+          September. See how you stack up in the leader board, and how close we
+          are to achieving our collective goal.
+        </p>
+        <p style={{ paddingBottom: "1%" }}>
+          The more the merrier – please encourage your friends and family to
+          join in, donate or sponsor you. (It’s a long way to the moon, after
+          all.)
+        </p>
+        <p style={{ paddingBottom: "1%" }}>
+          Please visit our website at www.mindyourstepwalk.co.uk or visit our
+          Facebook page for updates, including details of spot prizes we’re
+          offering in September. We’d love you to share photos and stories of
+          your activities through Facebook.
+        </p>
+        <p style={{ paddingBottom: "1%" }}>
+          Please do exercise with others, but consider the latest guidance on
+          Covid-19.
+        </p>
+        <p style={{ paddingBottom: "1%" }}>
+          We’re taking your name and email address, by signing up you agree to
+          us keeping this information for the duration of the event (September
+          2020). We will not share your contact details with anyone else. We
+          will only contact you to provide updates on the collective progress of
+          all those taking part as well as announcing any spot prize winners
+          during the event.
+        </p>
         <b>
+          {" "}
           We ask that you make a small donation of £5-10 to Mind for signing up,
           paid through the our just giving page:
         </b>
-        <br />
+      </div>
+      <div>
         <a
           target="_blank"
-          href="https://justgiving.com/fundraising/2020mys"
+          href="https://www.justgiving.com/fundraising/2020mys"
           rel="noopener noreferrer"
         >
-          Justgiving.com/fundraising/2020mys
+          {" "}
+          www.justgiving.com/fundraising/2020mys{" "}
         </a>
+      </div>
+      <div>
+        <p>
+          {" "}
+          If anyone would like to sponsor you, ask them to go to:{" "}
+          <a
+            target="_blank"
+            href="https://www.justgiving.com/team/MindYourStep20"
+            rel="noopener noreferrer"
+          >
+            www.justgiving.com/team/MindYourStep20{" "}
+          </a>{" "}
+        </p>
       </div>
       <p className="lead">
         <i className="fas fa-user"></i> Create Your Account
