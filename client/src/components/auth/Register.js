@@ -58,10 +58,18 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           all.)
         </p>
         <p style={{ paddingBottom: "1%" }}>
-          Please visit our website at www.mindyourstepwalk.co.uk or visit our
-          Facebook page for updates, including details of spot prizes we’re
-          offering in September. We’d love you to share photos and stories of
-          your activities through Facebook.
+          Please visit our website at{" "}
+          <a
+            target="_blank"
+            href="https://www.mindyourstepwalk.co.uk"
+            rel="noopener noreferrer"
+          >
+            {" "}
+            www.mindyourstepwalk.co.uk
+          </a>{" "}
+          or visit our Facebook page for updates, including details of spot
+          prizes we’re offering in September. We’d love you to share photos and
+          stories of your activities through Facebook.
         </p>
         <p style={{ paddingBottom: "1%" }}>
           Please do exercise with others, but consider the latest guidance on
