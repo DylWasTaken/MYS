@@ -22,7 +22,10 @@ const Tutorial = ({ createProfile, history }) => {
   return (
   
     <Fragment>
-     {/*   <div>
+    <div>
+    <div style={{width: "inherit", height:"50vh", margin: "5%"}}>
+    <Map />
+    </div>
           <b>When the site goes live:</b>
 
           <div>Data entered into the entry boxes below will be calculated to show how far you have traveled either via walking, running, cycling, swimming or horse riding. </div>
@@ -30,7 +33,7 @@ const Tutorial = ({ createProfile, history }) => {
         </div>
       
       <div>
-        <Map />
+       
         <form onSubmit={(e) => onSubmit(e)}>
           <div
             style={{
@@ -63,8 +66,7 @@ const Tutorial = ({ createProfile, history }) => {
           <input type="submit" className="btn btn-primary" value="Submit" />
         </form>
       </div>
-      */}
-      Awaiting Launch
+
           </Fragment> 
         
   );
