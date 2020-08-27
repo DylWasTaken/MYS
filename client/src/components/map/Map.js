@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from "react";
 import ReactMapGL, { Marker, Layer, Source } from "react-map-gl";
 
-const Map = ({ circle }) => {
+const Map = ({totalStats}) => {
+  const {walk, run, cycle, swim, horseRiding} = totalStats;
   const metersToPixelsAtMaxZoom = (meters, latitude) =>
     meters / 0.075 / Math.cos((latitude * Math.PI) / 180);
   const REACT_APP_MAPBOX_TOKEN =
@@ -26,7 +27,7 @@ const Map = ({ circle }) => {
       },
     ],
   };
-
+  const totalDist = walk + run + cycle + swim + horseRiding;
   return (
     <Fragment>
       <ReactMapGL
@@ -40,13 +41,28 @@ const Map = ({ circle }) => {
         </Marker>
         <Source id="loaded-data" type="geojson" data={geojson}>
           <Layer
-            id="point"
+            id="walk"
             type="circle"
             paint={{
               "circle-radius": {
                 stops: [
                   [0, 0],
-                  [20, metersToPixelsAtMaxZoom((circle*10), 52.928792)],
+                  [20, metersToPixelsAtMaxZoom(walk * 1000, 52.928792)],
+                ],
+                base: 2,
+              },
+              "circle-color": "red",
+              "circle-opacity": 0.35,
+            }}
+          />
+          <Layer
+            id="run"
+            type="circle"
+            paint={{
+              "circle-radius": {
+                stops: [
+                  [0, 0],
+                  [20, metersToPixelsAtMaxZoom(run * 1000, 52.928792)],
                 ],
                 base: 2,
               },
@@ -54,9 +70,55 @@ const Map = ({ circle }) => {
               "circle-opacity": 0.35,
             }}
           />
+          <Layer
+            id="cycle"
+            type="circle"
+            paint={{
+              "circle-radius": {
+                stops: [
+                  [0, 0],
+                  [20, metersToPixelsAtMaxZoom(cycle * 1000, 52.928792)],
+                ],
+                base: 2,
+              },
+              "circle-color": "blue",
+              "circle-opacity": 0.35,
+            }}
+          />
+          <Layer
+            id="swim"
+            type="circle"
+            paint={{
+              "circle-radius": {
+                stops: [
+                  [0, 0],
+                  [20, metersToPixelsAtMaxZoom(swim * 1000, 52.928792)],
+                ],
+                base: 2,
+              },
+              "circle-color": "yellow",
+              "circle-opacity": 0.35,
+            }}
+          />
+          <Layer
+            id="horseRiding"
+            type="circle"
+            paint={{
+              "circle-radius": {
+                stops: [
+                  [0, 0],
+                  [20, metersToPixelsAtMaxZoom(horseRiding * 1000, 52.928792)],
+                ],
+                base: 2,
+              },
+              "circle-color": "orange",
+              "circle-opacity": 0.35,
+            }}
+          />
         </Source>
         Global distance covered
       </ReactMapGL>
+      <button />
     </Fragment>
   );
 };
