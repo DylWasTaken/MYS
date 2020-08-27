@@ -13,7 +13,7 @@ const Landing = ({ isAuthenticated }) => {
       <div className="dark-overlay">
         <div className="landing-inner">
           <div style={{ position: "relative" }}>
-            <Map />
+       
           </div>
           <h1 className="x-large">Mind Your Step: Distance Tracker</h1>
           <div style={{ display: "inline-flex", justifyContent: "space-evenly" }}>
