@@ -137,7 +137,4 @@ const Map = ({totalStats}) => {
     </Fragment>
   );
 };
-const mapStateToProps = (state) => ({
-  radius: state.radius,
-});
 export default Map;

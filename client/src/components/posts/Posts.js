@@ -21,7 +21,7 @@ const Posts = ({ addPost, setAlert }) => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   return (
-  /*  <Fragment>
+   <Fragment>
       <form onSubmit={(e) => onSubmit(e)}>
         <div
           style={{
@@ -93,9 +93,6 @@ const Posts = ({ addPost, setAlert }) => {
         </div>
         <input type="submit" className="btn btn-primary" value="Submit" />
       </form>
-    </Fragment>*/
-    <Fragment>
-        Awaiting launch date
     </Fragment>
   );
 };
