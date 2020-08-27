@@ -35,6 +35,7 @@ const Posts = ({ addPost, setAlert }) => {
             <i className="fas fa-walking"></i>
             <input
               type="number"
+              step="0.01"
               value={walk}
               name="walk"
               onChange={(e) => onChange(e)}
@@ -47,6 +48,7 @@ const Posts = ({ addPost, setAlert }) => {
             <i className="fas fa-running"></i>
             <input
               type="number"
+              step="0.01"
               value={run}
               name="run"
               onChange={(e) => onChange(e)}
@@ -59,6 +61,7 @@ const Posts = ({ addPost, setAlert }) => {
             <i className="fas fa-biking"></i>
             <input
               type="number"
+              step="0.01"
               value={cycle}
               name="cycle"
               onChange={(e) => onChange(e)}
@@ -71,6 +74,7 @@ const Posts = ({ addPost, setAlert }) => {
             <i className="fas fa-swimmer"></i>
             <input
               type="number"
+              step="0.01"
               value={swim}
               name="swim"
               onChange={(e) => onChange(e)}
@@ -83,6 +87,7 @@ const Posts = ({ addPost, setAlert }) => {
             <i className="fas fa-horse"></i>
             <input
               type="number"
+              step="0.01"
               value={horseRiding}
               name="horseRiding"
               onChange={(e) => onChange(e)}

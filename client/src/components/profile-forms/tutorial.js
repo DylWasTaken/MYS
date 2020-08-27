@@ -61,6 +61,7 @@ const Tutorial = ({ createProfile, history }) => {
               {" : "}
               <input
                 type="number"
+                 step="0.01"
                 name="walk"
                 min="1"
                 max="43"
@@ -73,6 +74,7 @@ const Tutorial = ({ createProfile, history }) => {
               {" : "}
               <input
                 type="number"
+                 step="0.01"
                 name="run"
                 min="1"
                 max="43"
@@ -85,6 +87,7 @@ const Tutorial = ({ createProfile, history }) => {
               {" : "}
               <input
                 type="number"
+                 step="0.01"
                 name="cycle"
                 min="1"
                 max="43"
@@ -97,6 +100,7 @@ const Tutorial = ({ createProfile, history }) => {
               {" : "}
               <input
                 type="number"
+                 step="0.01"
                 name="swim"
                 min="1"
                 max="43"
@@ -109,6 +113,7 @@ const Tutorial = ({ createProfile, history }) => {
               {" : "}
               <input
                 type="number"
+                 step="0.01"
                 name="horseRiding"
                 min="1"
                 max="43"
