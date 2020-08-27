@@ -12,7 +12,7 @@ const Map = ({totalStats}) => {
     longitude: -1.467562,
     width: "inherit",
     height: "100%",
-    zoom: 17,
+    zoom: 10,
     minZoom: 1,
     maxZoom: 20,
     pitchEnabled: false,
@@ -115,10 +115,25 @@ const Map = ({totalStats}) => {
               "circle-opacity": 0.35,
             }}
           />
+             <Layer
+            id="totalDist"
+            type="circle"
+            paint={{
+              "circle-radius": {
+                stops: [
+                  [0, 0],
+                  [20, metersToPixelsAtMaxZoom(totalDist * 1000, 52.928792)],
+                ],
+                base: 2,
+              },
+              "circle-color": "grey",
+              "circle-opacity": 0.35,
+            }}
+          />
         </Source>
+        
         Global distance covered
       </ReactMapGL>
-      <button />
     </Fragment>
   );
 };
