@@ -14,11 +14,11 @@ const Tutorial = ({ createProfile, history }) => {
     horseRiding: 0,
   });
   const startStats= {
-    walk: 0,
-    run: 0,
-    cycle: 0,
-    swim: 0,
-    horseRiding: 0,
+    walk: 0.00,
+    run: 0.00,
+    cycle: 0.00,
+    swim: 0.00,
+    horseRiding: 0.00,
   };
 
   const onSubmit = (e) => {

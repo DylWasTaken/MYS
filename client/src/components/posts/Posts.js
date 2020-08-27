@@ -41,7 +41,7 @@ const Posts = ({ addPost, setAlert }) => {
               onChange={(e) => onChange(e)}
               min="0"
               max="43"
-            />
+            /> <>km</>
           </div>
           <div style={{ display: "inline-block", padding: "1em" }}>
             Running
@@ -54,7 +54,7 @@ const Posts = ({ addPost, setAlert }) => {
               onChange={(e) => onChange(e)}
               min="0"
               max="43"
-            />
+            /> <>km</>
           </div>
           <div style={{ display: "inline-block", padding: "1em" }}>
             Cycling
@@ -67,7 +67,7 @@ const Posts = ({ addPost, setAlert }) => {
               onChange={(e) => onChange(e)}
               min="0"
               max="86"
-            />
+            /> <>km</>
           </div>
           <div style={{ display: "inline-block", padding: "1em" }}>
             Swimming
@@ -80,7 +80,7 @@ const Posts = ({ addPost, setAlert }) => {
               onChange={(e) => onChange(e)}
               min="0"
               max="43"
-            />
+            /> <>km</>
           </div>
           <div style={{ display: "inline-block", padding: "1em" }}>
             Horse Riding
@@ -93,7 +93,7 @@ const Posts = ({ addPost, setAlert }) => {
               onChange={(e) => onChange(e)}
               min="0"
               max="43"
-            />
+            /> <>km</>
           </div>
         </div>
         <input type="submit" className="btn btn-primary" value="Submit" />
