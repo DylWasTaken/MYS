@@ -22,7 +22,7 @@ const Profile = ({
       ) : (
         <Fragment style={{justifyContent:"space-evenly"}}>
           <div style={{width: "inherit", height:"50vh", margin: "5%"}}>
-          <Map />
+          <Map  totalStats={profile} />
           </div>
           {auth.isAuthenticated &&
             auth.loading === false &&

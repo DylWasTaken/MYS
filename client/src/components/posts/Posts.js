@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
 import { addPost } from "../../actions/post";
+import Map from "../map/Map";
 
 const Posts = ({ addPost, setAlert }) => {
   const [formData, setFormData] = useState({
@@ -21,7 +22,10 @@ const Posts = ({ addPost, setAlert }) => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   return (
-  /*  <Fragment>
+   <Fragment>
+        <div style={{ width: "inherit", height: "50vh", margin: "5%" }}>
+          <Map totalStats={formData} />
+        </div>
       <form onSubmit={(e) => onSubmit(e)}>
         <div
           style={{
@@ -30,72 +34,74 @@ const Posts = ({ addPost, setAlert }) => {
             width: "100%",
           }}
         >
-          <div style={{ display: "inline-block", padding: "1em" }}>
-            Walking
+          <div style={{ display: "inline-block" }}>
+            Walk
             <i className="fas fa-walking"></i>
             <input
               type="number"
+              step="0.01"
               value={walk}
               name="walk"
               onChange={(e) => onChange(e)}
               min="0"
               max="43"
-            />
+            /> <small>km</small>
           </div>
-          <div style={{ display: "inline-block", padding: "1em" }}>
-            Running
+          <div style={{ display: "inline-block" }}>
+            Run
             <i className="fas fa-running"></i>
             <input
               type="number"
+              step="0.01"
               value={run}
               name="run"
               onChange={(e) => onChange(e)}
               min="0"
               max="43"
-            />
+            /> <small>km</small>
           </div>
-          <div style={{ display: "inline-block", padding: "1em" }}>
-            Cycling
+          <div style={{ display: "inline-block" }}>
+            Cycle
             <i className="fas fa-biking"></i>
             <input
               type="number"
+              step="0.01"
               value={cycle}
               name="cycle"
               onChange={(e) => onChange(e)}
               min="0"
               max="86"
-            />
+            /> <small>km</small>
           </div>
-          <div style={{ display: "inline-block", padding: "1em" }}>
-            Swimming
+          <div style={{ display: "inline-block" }}>
+            Swim
             <i className="fas fa-swimmer"></i>
             <input
               type="number"
+              step="0.01"
               value={swim}
               name="swim"
               onChange={(e) => onChange(e)}
               min="0"
               max="43"
-            />
+            /> <small>km</small>
           </div>
-          <div style={{ display: "inline-block", padding: "1em" }}>
-            Horse Riding
+          <div style={{ display: "inline-block" }}>
+            Horse Ride
             <i className="fas fa-horse"></i>
             <input
               type="number"
+              step="0.01"
               value={horseRiding}
               name="horseRiding"
               onChange={(e) => onChange(e)}
               min="0"
               max="43"
-            />
+            /> <small>km</small>
           </div>
         </div>
         <input type="submit" className="btn btn-primary" value="Submit" />
       </form>
-    </Fragment>*/
-    <Fragment>
-        Awaiting launch date
     </Fragment>
   );
 };
