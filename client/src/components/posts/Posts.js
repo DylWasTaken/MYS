@@ -1,13 +1,14 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import {Link, withRouter}  from "react-router-dom";
 import { setAlert } from "../../actions/alert";
 import { addPost } from "../../actions/post";
 import Map from "../map/Map";
-import {createProfile} from "../../actions/profile";
+import { createProfile, getCurrentProfile } from "../../actions/profile";
 
-const Posts = ({ addPost, setAlert }) => {
-  const [formData, setFormData] = useState({
+const Posts = ({ profile: {profile, loading}, addPost, setAlert, createProfile , history}) => {
+  const [totalStats, setFormData] = useState({
     walk: 0,
     run: 0,
     cycle: 0,
@@ -15,19 +16,30 @@ const Posts = ({ addPost, setAlert }) => {
     horseRiding: 0,
   });
 
-  const { walk, run, cycle, swim, horseRiding } = formData;
+  useEffect(()=> {
+    getCurrentProfile();
+  });
+
+  const { walk, run, cycle, swim, horseRiding } = totalStats;
   const onSubmit = (e) => {
     addPost({ walk, run, cycle, swim, horseRiding });
-    createProfile({ walk, run, cycle, swim, horseRiding})
+    createProfile({totalStats, history});
     setAlert("Activity added", "success");
   };
 
   const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...totalStats, [e.target.name]: e.target.value });
   return (
     <Fragment>
-      <div style={{ width: "inherit", height: "50vh", margin: "5%", paddingBottom:"11%" }}>
-        <Map totalStats={formData} title={"Add Data"}  />
+      <div
+        style={{
+          width: "inherit",
+          height: "50vh",
+          margin: "5%",
+          paddingBottom: "11%",
+        }}
+      >
+        <Map totalStats={totalStats} title={"Add Data"} />
       </div>
       <form onSubmit={(e) => onSubmit(e)}>
         <div
@@ -37,8 +49,9 @@ const Posts = ({ addPost, setAlert }) => {
             width: "100%",
           }}
         >
-          <div style={{ display: "inline-block", paddingLeft:"1%" }} >
-            Walking:<br/>
+          <div style={{ display: "inline-block", paddingLeft: "1%" }}>
+            Walking:
+            <br />
             <i className="fas fa-walking"></i>
             <input
               type="number"
@@ -51,8 +64,9 @@ const Posts = ({ addPost, setAlert }) => {
             />{" "}
             <small>km</small>
           </div>
-          <div style={{ display: "inline-block", paddingLeft:"5%" }}>
-          Running:<br/>
+          <div style={{ display: "inline-block", paddingLeft: "5%" }}>
+            Running:
+            <br />
             <i className="fas fa-running"></i>
             <input
               type="number"
@@ -65,8 +79,9 @@ const Posts = ({ addPost, setAlert }) => {
             />{" "}
             <small>km</small>
           </div>
-          <div style={{ display: "inline-block", paddingLeft:"5%" }}>
-          Bike Riding:<br/>
+          <div style={{ display: "inline-block", paddingLeft: "5%" }}>
+            Bike Riding:
+            <br />
             <i className="fas fa-biking"></i>
             <input
               type="number"
@@ -79,8 +94,9 @@ const Posts = ({ addPost, setAlert }) => {
             />{" "}
             <small>km</small>
           </div>
-          <div style={{ display: "inline-block", paddingLeft:"5%" }}>
-          Swimming:<br/>
+          <div style={{ display: "inline-block", paddingLeft: "5%" }}>
+            Swimming:
+            <br />
             <i className="fas fa-swimmer"></i>
             <input
               type="number"
@@ -93,8 +109,9 @@ const Posts = ({ addPost, setAlert }) => {
             />{" "}
             <small>km</small>
           </div>
-          <div style={{ display: "inline-block", paddingLeft:"5%" }}>
-          Horse Riding:<br/>
+          <div style={{ display: "inline-block", paddingLeft: "5%" }}>
+            Horse Riding:
+            <br />
             <i className="fas fa-horse"></i>
             <input
               type="number"
@@ -120,4 +137,10 @@ Posts.propTypes = {
   createProfile: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addPost, setAlert, createProfile })(Posts);
+const mapStateToProps = state =>({
+  profile: state.profile
+});
+
+
+
+export default connect(mapStateToProps, { addPost, setAlert, createProfile, getCurrentProfile})(withRouter(Posts));

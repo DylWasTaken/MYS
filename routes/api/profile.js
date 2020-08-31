@@ -40,7 +40,6 @@ router.post("/", auth, async (req, res) => {
   
   try {
     let profile = await Profile.findOne({ user: req.user.id });
-    console.log(req.body.walk)
     if (profile) {
       //update
       profile = await Profile.findOneAndUpdate(

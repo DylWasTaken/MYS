@@ -49,7 +49,7 @@ const Dashboard = ({
          
           </div>
             
-            <Card style={{backgroundColor:"#d1cdcd"}}>
+            <Card style={{backgroundColor:"#d1cdcd", marginTop:"10%"}}>
               <table style={{width:"100%"}}>
               <th>Walk</th>
               <th>Run</th>
