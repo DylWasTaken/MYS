@@ -132,10 +132,10 @@ const Map = ({ totalStats, title }) => {
             }}
           />
         </Source>
-          <div style={{justifyContent:"center"}}> <Card style={{width:"30%",marginLeft:"auto", marginRight:"auto",}}> {title}</Card></div>
+          <div style={{justifyContent:"center"}}> <Card style={{width:"30%",marginLeft:"auto", marginRight:"auto",textAlign:"center"}}> {title}</Card></div>
        
       </ReactMapGL>
-      <div style={{ justifyContent: "center", marginLeft:"auto", marginRight:"auto", width:"100%" }}>
+      <div style={{ justifyContent: "center", marginLeft:"auto", marginRight:"auto", width:"100%", textAlign:"center" }}>
         <div style={{ display: "inline-block" }}>
           <>
           <div className="key" style={{background:"red"}}></div>
