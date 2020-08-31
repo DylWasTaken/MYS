@@ -28,7 +28,7 @@ const Map = ({ totalStats, title }) => {
       },
     ],
   };
-  const totalDist = (walk + run + cycle + swim + horseRiding) / 1000;
+
   return (
     <Fragment>
       <ReactMapGL
@@ -170,7 +170,7 @@ const Map = ({ totalStats, title }) => {
           <div style={{display: "inline-block"}}> 
         <>
           <div className="key" style={{background:"grey"}}></div>
-            <i className="fas fa-globe"></i>: {horseRiding + +run + +walk + +cycle + +swim}
+            <i className="fas fa-globe"></i>: {(horseRiding + +run + +walk + +cycle + +swim).toFixed(2)}
           </>
           </div>
       </div>

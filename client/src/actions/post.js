@@ -19,7 +19,7 @@ export const getPosts = () => async (dispatch) => {
 };
 
 //Delete posts
-export const deletePost = (id) => async (dispatch) => {
+export const deletePost = id => async (dispatch) => {
   try {
     const res = await axios.delete(`/api/log/${id}`);
     dispatch({

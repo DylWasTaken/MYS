@@ -17,7 +17,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
       ) : (
         <Fragment>
           <h1 className="large text-primary">Leader board</h1>
-          <div style={{ flexDirection: "row" }}>
+          <div style={{ flexDirection: "row-reverse" }}>
             <Card
               style={{
                 backgroundColor: "#d1cdcd",

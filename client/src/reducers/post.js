@@ -33,7 +33,7 @@ export default function (state = intialState, action) {
     case DELETE_POST:
       return{
         ...state,
-        logs: state.post.filter(log => log._id !==payload),
+        logs: state.logs.filter(log => log._id !== payload),
         loading: false
       }
 

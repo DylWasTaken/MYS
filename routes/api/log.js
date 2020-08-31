@@ -45,20 +45,22 @@ router.get("/", auth, async (req, res) => {
 //@route    delete api/log
 //desc      delete individual log
 //@access   Private
-router.delete("/:id", auth, async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
   try {
-    const logs = await Log.findById(req.params.id);
+    const logs = await Log.findById( req.params.id);
 
-    /*if (!log) {
+
+    if (!logs) {
       return res.status(404).json({ msg: "Log not found" });
     }
     //Check user
-    if (log.user.toString() !== req.user.id) {
+    if (logs.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: " User not authorized" });
-    }*/
-    await log.remove();
+    }
+    await logs.remove();
     res.json(logs);
   } catch (error) {
+
     console.error(err.message);
     //    res.status(500).send("Server Error");
   }

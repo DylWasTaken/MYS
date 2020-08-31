@@ -37,16 +37,18 @@ router.post("/", auth, async (req, res) => {
   profileFields.swim = 0;
   profileFields.horseRiding = 0;
 
+  
   try {
     let profile = await Profile.findOne({ user: req.user.id });
-
+    console.log(req.body.walk)
     if (profile) {
       //update
       profile = await Profile.findOneAndUpdate(
         { user: req.user.id },
-        { $set: profileFields },
+        { $inc: {run:  req.body.run, walk: req.body.walk, cycle: req.body.cycle, swim: req.body.swim, horseRiding: req.body.horseRiding }  },
         { new: true }
       );
+      return res.json(profile);
     }
     //create
     profile = new Profile(profileFields);

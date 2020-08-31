@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
 import { addPost } from "../../actions/post";
 import Map from "../map/Map";
+import {createProfile} from "../../actions/profile";
 
 const Posts = ({ addPost, setAlert }) => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ const Posts = ({ addPost, setAlert }) => {
   const { walk, run, cycle, swim, horseRiding } = formData;
   const onSubmit = (e) => {
     addPost({ walk, run, cycle, swim, horseRiding });
+    createProfile({ walk, run, cycle, swim, horseRiding})
     setAlert("Activity added", "success");
   };
 
@@ -36,7 +38,7 @@ const Posts = ({ addPost, setAlert }) => {
           }}
         >
           <div style={{ display: "inline-block", paddingLeft:"1%" }} >
-            
+            Walking:<br/>
             <i className="fas fa-walking"></i>
             <input
               type="number"
@@ -50,7 +52,7 @@ const Posts = ({ addPost, setAlert }) => {
             <small>km</small>
           </div>
           <div style={{ display: "inline-block", paddingLeft:"5%" }}>
-      
+          Running:<br/>
             <i className="fas fa-running"></i>
             <input
               type="number"
@@ -64,7 +66,7 @@ const Posts = ({ addPost, setAlert }) => {
             <small>km</small>
           </div>
           <div style={{ display: "inline-block", paddingLeft:"5%" }}>
-          
+          Bike Riding:<br/>
             <i className="fas fa-biking"></i>
             <input
               type="number"
@@ -78,7 +80,7 @@ const Posts = ({ addPost, setAlert }) => {
             <small>km</small>
           </div>
           <div style={{ display: "inline-block", paddingLeft:"5%" }}>
-          
+          Swimming:<br/>
             <i className="fas fa-swimmer"></i>
             <input
               type="number"
@@ -92,7 +94,7 @@ const Posts = ({ addPost, setAlert }) => {
             <small>km</small>
           </div>
           <div style={{ display: "inline-block", paddingLeft:"5%" }}>
-          
+          Horse Riding:<br/>
             <i className="fas fa-horse"></i>
             <input
               type="number"
@@ -115,6 +117,7 @@ const Posts = ({ addPost, setAlert }) => {
 Posts.propTypes = {
   addPost: PropTypes.func.isRequired,
   setAlert: PropTypes.func.isRequired,
+  createProfile: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addPost, setAlert })(Posts);
+export default connect(null, { addPost, setAlert, createProfile })(Posts);

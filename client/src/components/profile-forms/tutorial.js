@@ -32,6 +32,7 @@ const Tutorial = ({ createProfile, history }) => {
   return (
     <Fragment>
       <div>
+      <h1 className="large text-primary">Tutorial</h1>
         <div style={{ width: "inherit", height: "50vh", margin: "5%" }}>
           <Map totalStats={totalStats} />
         </div>
@@ -41,7 +42,7 @@ const Tutorial = ({ createProfile, history }) => {
           or horse riding.{" "}
         </div>
         <div>
-          The top runner for each week will get a badge added to their profile,
+          The top five people in each catergory for each week will get a badge added to their profile,
           along with badges added along the way for people who complete certain
           secret tasks
         </div>
