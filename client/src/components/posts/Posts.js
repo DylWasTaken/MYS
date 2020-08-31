@@ -17,25 +17,26 @@ const Posts = ({ addPost, setAlert }) => {
   const { walk, run, cycle, swim, horseRiding } = formData;
   const onSubmit = (e) => {
     addPost({ walk, run, cycle, swim, horseRiding });
+    setAlert("Activity added", "success");
   };
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   return (
-   <Fragment>
-        <div style={{ width: "inherit", height: "50vh", margin: "5%" }}>
-          <Map totalStats={formData} />
-        </div>
+    <Fragment>
+      <div style={{ width: "inherit", height: "50vh", margin: "5%", paddingBottom:"11%" }}>
+        <Map totalStats={formData} title={"Add Data"}  />
+      </div>
       <form onSubmit={(e) => onSubmit(e)}>
         <div
           style={{
             flexDirection: "row",
-            justifyContent: "space-evenly",
+            justifyContent: "space-between",
             width: "100%",
           }}
         >
-          <div style={{ display: "inline-block" }}>
-            Walk
+          <div style={{ display: "inline-block", paddingLeft:"1%" }} >
+            
             <i className="fas fa-walking"></i>
             <input
               type="number"
@@ -44,11 +45,12 @@ const Posts = ({ addPost, setAlert }) => {
               name="walk"
               onChange={(e) => onChange(e)}
               min="0"
-              max="43"
-            /> <small>km</small>
+              max="9999"
+            />{" "}
+            <small>km</small>
           </div>
-          <div style={{ display: "inline-block" }}>
-            Run
+          <div style={{ display: "inline-block", paddingLeft:"5%" }}>
+      
             <i className="fas fa-running"></i>
             <input
               type="number"
@@ -57,11 +59,12 @@ const Posts = ({ addPost, setAlert }) => {
               name="run"
               onChange={(e) => onChange(e)}
               min="0"
-              max="43"
-            /> <small>km</small>
+              max="9999"
+            />{" "}
+            <small>km</small>
           </div>
-          <div style={{ display: "inline-block" }}>
-            Cycle
+          <div style={{ display: "inline-block", paddingLeft:"5%" }}>
+          
             <i className="fas fa-biking"></i>
             <input
               type="number"
@@ -70,11 +73,12 @@ const Posts = ({ addPost, setAlert }) => {
               name="cycle"
               onChange={(e) => onChange(e)}
               min="0"
-              max="86"
-            /> <small>km</small>
+              max="9999"
+            />{" "}
+            <small>km</small>
           </div>
-          <div style={{ display: "inline-block" }}>
-            Swim
+          <div style={{ display: "inline-block", paddingLeft:"5%" }}>
+          
             <i className="fas fa-swimmer"></i>
             <input
               type="number"
@@ -83,11 +87,12 @@ const Posts = ({ addPost, setAlert }) => {
               name="swim"
               onChange={(e) => onChange(e)}
               min="0"
-              max="43"
-            /> <small>km</small>
+              max="9999"
+            />{" "}
+            <small>km</small>
           </div>
-          <div style={{ display: "inline-block" }}>
-            Horse Ride
+          <div style={{ display: "inline-block", paddingLeft:"5%" }}>
+          
             <i className="fas fa-horse"></i>
             <input
               type="number"
@@ -96,8 +101,9 @@ const Posts = ({ addPost, setAlert }) => {
               name="horseRiding"
               onChange={(e) => onChange(e)}
               min="0"
-              max="43"
-            /> <small>km</small>
+              max="9999"
+            />{" "}
+            <small>km</small>
           </div>
         </div>
         <input type="submit" className="btn btn-primary" value="Submit" />

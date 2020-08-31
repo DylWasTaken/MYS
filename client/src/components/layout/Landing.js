@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Map from "../map/Map";
+
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -13,7 +13,6 @@ const Landing = ({ isAuthenticated }) => {
       <div className="dark-overlay">
         <div className="landing-inner">
           <div style={{ position: "relative" }}>
-         {/*map goes zoom*/}
           </div>
           <h1 className="x-large">Mind Your Step: Distance Tracker</h1>
           <div style={{ display: "inline-flex", justifyContent: "space-evenly" }}>

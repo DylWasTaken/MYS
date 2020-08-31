@@ -60,11 +60,14 @@ router.post("/", auth, async (req, res) => {
 });
 
 //@route GET api/profile
-//@desc Get all profiles
+//@desc Get all profiles by run order
 //@access public
 router.get("/", async (req, res) => {
   try {
-    const profiles = await Profile.find().populate("user", ["name", "avatar"]);
+    const profiles = await Profile.find()
+      .populate("user", ["name", "avatar"])
+      .sort({ run: -1 })
+      .limit(5);
     res.json(profiles);
   } catch (err) {
     console.error(err.message);

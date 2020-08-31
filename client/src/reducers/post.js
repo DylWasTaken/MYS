@@ -1,4 +1,4 @@
-import { GET_POSTS, POST_ERROR, ADD_POST, GET_POSTS_BY_USER } from "../actions/types";
+import { GET_POSTS, POST_ERROR, ADD_POST, GET_POSTS_BY_USER, DELETE_POST } from "../actions/types";
 
 const intialState = {
   logs: [],
@@ -30,6 +30,12 @@ export default function (state = intialState, action) {
         loading: false,
       };
     }
+    case DELETE_POST:
+      return{
+        ...state,
+        logs: state.post.filter(log => log._id !==payload),
+        loading: false
+      }
 
     case POST_ERROR:
       return {

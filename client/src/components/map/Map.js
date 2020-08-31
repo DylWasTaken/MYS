@@ -1,8 +1,9 @@
 import React, { Fragment, useState } from "react";
 import ReactMapGL, { Marker, Layer, Source } from "react-map-gl";
+import Card from '@material-ui/core/Card';
 
-const Map = ({totalStats}) => {
-  const {walk, run, cycle, swim, horseRiding} = totalStats;
+const Map = ({ totalStats, title }) => {
+  const { walk, run, cycle, swim, horseRiding } = totalStats;
   const metersToPixelsAtMaxZoom = (meters, latitude) =>
     meters / 0.075 / Math.cos((latitude * Math.PI) / 180);
   const REACT_APP_MAPBOX_TOKEN =
@@ -27,7 +28,7 @@ const Map = ({totalStats}) => {
       },
     ],
   };
-  const totalDist = (walk + run + cycle + swim + horseRiding)/1000;
+  const totalDist = (walk + run + cycle + swim + horseRiding) / 1000;
   return (
     <Fragment>
       <ReactMapGL
@@ -52,7 +53,7 @@ const Map = ({totalStats}) => {
                 base: 2,
               },
               "circle-color": "red",
-              "circle-opacity": 0.35,
+              "circle-opacity": 0.7,
             }}
           />
           <Layer
@@ -116,10 +117,41 @@ const Map = ({totalStats}) => {
             }}
           />
         </Source>
-        
-        Global distance covered
+          <div style={{justifyContent:"center"}}> <Card style={{width:"30%",marginLeft:"auto", marginRight:"auto",}}> {title}</Card></div>
+       
       </ReactMapGL>
-
+      <div style={{ justifyContent: "center", marginLeft:"auto", marginRight:"auto", width:"100%" }}>
+        <div style={{ display: "inline-block" }}>
+          <p>
+          <div className="key" style={{background:"red"}}></div>
+            <i className="fas fa-walking"></i>: {walk}
+          </p>
+        </div>{" "}
+        <div style={{ display: "inline-block" }}>
+          <p>
+          <div className="key" style={{background:"green"}}></div>
+            <i className="fas fa-running"></i>: {run}
+          </p>
+        </div>{" "}
+        <div style={{ display: "inline-block" }}>
+          <p>
+          <div className="key" style={{background:"blue"}}></div>
+            <i className="fas fa-biking"></i>: {cycle}
+          </p>
+        </div>{" "}
+        <div style={{ display: "inline-block" }}>
+          <p>
+          <div className="key" style={{background:"yellow"}}></div>
+            <i className="fas fa-swimmer"></i>: {swim}
+          </p>
+        </div>
+        <div style={{ display: "inline-block" }}>
+          <p>
+          <div className="key" style={{background:"orange"}}></div>
+            <i className="fas fa-horse"></i>: {horseRiding}
+          </p>
+        </div>
+      </div>
     </Fragment>
   );
 };

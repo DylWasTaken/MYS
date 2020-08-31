@@ -18,6 +18,7 @@
   "author": "Dylan Mahowa",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.1",
     "express": "^4.17.1",
@@ -25,6 +26,7 @@
     "gravatar": "^1.8.1",
     "jsonwebtoken": "^8.5.1",
     "mapbox-gl-draw-circle": "^1.1.2",
+    "material-table": "^1.69.0",
     "mongoose": "^5.9.24",
     "react-map-gl": "^5.2.7",
     "react-scripts": "^3.4.1"

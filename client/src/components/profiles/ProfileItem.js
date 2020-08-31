@@ -14,10 +14,9 @@ const ProfileItem = ({
   },
 }) => {
   return (
-    <div className="profile bg-light" style={{}}>
-      <img src={avatar} alt="" className="round-img" />
+    <div>
       <div>
-        <h2>{name}</h2>
+        <h6>{name}</h6>
         <div style={{ justifyContent: "space-evenly" }}>
           <div style={{ display: "inline-block" }}>
             <p>
@@ -49,12 +48,15 @@ const ProfileItem = ({
               <i className="fas fa-horse"></i>: {horseRiding}
             </p>
           </div>
+         <div style={{ display: "inline-block" }}>
+         <Link to={`/profile/${_id}`} className="btn btn-primary">
+          View Profile
+        </Link>
+         </div>
         </div>
       </div>
       <div style={{ display: "inline-block" }}>
-        <Link to={`/profile/${_id}`} className="btn btn-primary">
-          View Profile
-        </Link>
+    
       </div>
     </div>
   );
