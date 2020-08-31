@@ -15,7 +15,7 @@ const DashboardActions = ({
       <Link to={`/profile/${_id}`} className="btn btn-light">
         View my progress
       </Link>
-      <Link to="/Posts" className="btn btn-light">
+      <Link to="/team" className="btn btn-light">
         View everyone's progress
       </Link>
     </div>

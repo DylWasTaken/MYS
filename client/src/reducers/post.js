@@ -1,4 +1,4 @@
-import { GET_POSTS, POST_ERROR, ADD_POST, GET_POSTS_BY_USER, DELETE_POST } from "../actions/types";
+import { GET_POSTS, POST_ERROR, ADD_POST, GET_POSTS_BY_USER, DELETE_POST, GET_ALL_POSTS } from "../actions/types";
 
 const intialState = {
   logs: [],
@@ -12,6 +12,7 @@ export default function (state = intialState, action) {
 
   switch (type) {
     case GET_POSTS:
+    case GET_ALL_POSTS:
       return {
         ...state,
         logs: payload,

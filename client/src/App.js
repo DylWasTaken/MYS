@@ -12,6 +12,7 @@ import Tutorial from "./components/profile-forms/tutorial";
 import Profiles from "./components/profiles/Profiles";
 import Posts from "./components/posts/Posts";
 import Profile from "./components/profile/Profile";
+import Team from  "./components/team/Team";
 //import Map from './components/map/Map';
 //Redux
 import { Provider } from "react-redux";
@@ -44,6 +45,7 @@ const App = () => {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/tutorial" component={Tutorial} />
               <PrivateRoute exact path="/posts" component={Posts} />
+              <PrivateRoute exact path="/team" component={Team} />
             </Switch>
           </section>
         </Fragment>

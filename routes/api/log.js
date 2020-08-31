@@ -42,6 +42,52 @@ router.get("/", auth, async (req, res) => {
 });
 
 
+//@route    Get api/log
+//desc      get all logs
+//@access   Private
+router.get("/all", auth, async (req, res) => {
+  try {
+    const logs = await Log.aggregate([
+      [
+        {
+          '$project': {
+            '_id': 0, 
+            'walk': 1, 
+            'run': 1, 
+            'cycle': 1, 
+            'swim': 1, 
+            'horseRiding': 1
+          }
+        }, {
+          '$group': {
+            '_id': null, 
+            'walk': {
+              '$sum': '$walk'
+            }, 
+            'run': {
+              '$sum': '$run'
+            }, 
+            'cycle': {
+              '$sum': '$cycle'
+            }, 
+            'swim': {
+              '$sum': '$swim'
+            }, 
+            'horseRiding': {
+              '$sum': '$horseRiding'
+            }
+          }
+        }
+      ]
+    ])
+    res.json(logs);
+  } catch (error) {
+    console.error(err.message);
+    //    res.status(500).send("Server Error");
+  }
+});
+
+
 //@route    delete api/log
 //desc      delete individual log
 //@access   Private
