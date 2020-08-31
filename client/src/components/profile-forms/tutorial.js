@@ -37,23 +37,19 @@ const Tutorial = ({ createProfile, history }) => {
           <Map totalStats={totalStats} />
         </div>
         <div>
-          Data entered into the entry boxes below will be calculated to show how
-          far you have traveled either via walking, running, cycling, swimming
-          or horse riding.{" "}
+        Thank you for signing up to take part in the virtual Mind Your Step 2020{" "}
         </div>
         <div>
-          The top five people in each catergory for each week will get a badge added to their profile,
-          along with badges added along the way for people who complete certain
-          secret tasks
+        To use the distance tracker firstly record how far you have travelled either walking, running, cycling, horse riding or swimming in km using your own device. Then on the ‘add activity’ page enter the distance into the appropriate box (as shown below) and the distance will be added to your cumulative total.
         </div>
         <div>
-          The colours shown above correspond to the distance travelled doing each activity: red for walking, green for running, blue for cycling, yellow for swimming, orange for horseriding and grey for your total distance for all activities.
+        The leader board will show the walkers, runners, cyclists, swimmers and runners who have travelled the greatest cumulative distance.
         </div>
         <div>
-        Adding data on this page will not add to your total but allows you to view a distance for when you do log an activity
+        The tracker will also keep a record of our cumulative distance so that we can celebrate milestone achievements.
         </div>
         <div>
-          Please note all activities are measured in kilometers so you may have to convert
+        We will be celebrating along the way the top distances travelled and some opportunities for spot prizes that will be announced through our Facebook page.
         </div>
         
       </div>

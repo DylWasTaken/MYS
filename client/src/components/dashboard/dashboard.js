@@ -48,7 +48,7 @@ const Dashboard = ({
             <Map totalStats={profile}  title={"Your distance covered"} />
          
           </div>
-            
+            <br />
             <Card style={{backgroundColor:"#d1cdcd", marginTop:"10%"}}>
               <table style={{width:"100%"}}>
               <th>Walk</th>
@@ -72,7 +72,7 @@ const Dashboard = ({
              ))}
               </table>
             </Card>
-
+            <br />
           <DashboardActions profile={profile}  />
         </>
       ) : (

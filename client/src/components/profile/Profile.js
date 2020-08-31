@@ -21,6 +21,7 @@ const Profile = ({
         <Spinner />
       ) : (
         <Fragment style={{justifyContent:"space-evenly"}}>
+          <h1> {profile.user_id}</h1>
           <div style={{width: "inherit", height:"50vh", margin: "5%"}}>
           <Map  totalStats={profile} />
           </div>
@@ -32,7 +33,7 @@ const Profile = ({
               </Fragment>
             )}
           <div className="profile-grid my-1">
-                <ProfileTop profile={profile}/>
+            
           </div>
         </Fragment>
       )}
