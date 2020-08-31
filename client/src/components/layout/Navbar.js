@@ -7,6 +7,12 @@ import { logout } from "../../actions/auth";
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
+       <li>
+        <Link to="/tutorial">
+          <i className={"fas fa-book-open fa-flip-horizontal"}></i>
+          <span className="hide-sm"> Tutorial</span>
+        </Link>
+      </li>
       <li>
         <Link to="/leaderboard">
           {" "}

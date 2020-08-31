@@ -46,6 +46,16 @@ const Tutorial = ({ createProfile, history }) => {
           along with badges added along the way for people who complete certain
           secret tasks
         </div>
+        <div>
+          The colours shown above correspond to the distance travelled doing each activity: red for walking, green for running, blue for cycling, yellow for swimming, orange for horseriding and grey for your total distance for all activities.
+        </div>
+        <div>
+        Adding data on this page will not add to your total but allows you to view a distance for when you do log an activity
+        </div>
+        <div>
+          Please note all activities are measured in kilometers so you may have to convert
+        </div>
+        
       </div>
 
       <div>
