@@ -17,61 +17,91 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
       ) : (
         <Fragment>
           <h1 className="large text-primary">Leader board</h1>
-          <div style={{flexDirection:"row"}}>
-            <Card style={{backgroundColor:"#d1cdcd", maxWidth:"30%", margin:"0%"}}>
+          <div style={{ flexDirection: "row" }}>
+            <Card
+              style={{
+                backgroundColor: "#d1cdcd",
+                maxWidth: "30%",
+                margin: "1%",
+                padding: "1%"
+              }}
+            >
               Top Walkers
-            {profiles.length > 0 ? (
-              profiles.map((profile) => (
-                <ProfileItem key={profile._id} profile={profile} />
-              ))
-              
-            ) : (
-              <h4> No profiles made yet...</h4>
-            )}
+              {profiles.length > 0 ? (
+                profiles.map((profile) => (
+                  <ProfileItem key={profile._id} profile={profile} />
+                ))
+              ) : (
+                <h4> No profiles made yet...</h4>
+              )}
             </Card>
-            <Card style={{backgroundColor:"#d1cdcd", maxWidth:"30%", margin:"0%"}}>
+            <Card
+              style={{
+                backgroundColor: "#d1cdcd",
+                maxWidth: "30%",
+                margin: "1%",
+                padding: "1%"
+              }}
+            >
               Top runners
-            {profiles.length > 0 ? (
-              profiles.map((profile) => (
-                <ProfileItem key={profile._id} profile={profile} />
-              ))
-              
-            ) : (
-              <h4> No profiles made yet...</h4>
-            )}
-            </Card>   
-            <Card style={{backgroundColor:"#d1cdcd", maxWidth:"30%", margin:"0%"}}>
+              {profiles.length > 0 ? (
+                profiles.map((profile) => (
+                  <ProfileItem key={profile._id} profile={profile} />
+                ))
+              ) : (
+                <h4> No profiles made yet...</h4>
+              )}
+            </Card>
+            <Card
+              style={{
+                backgroundColor: "#d1cdcd",
+                maxWidth: "30%",
+                margin: "1%",
+                padding: "1%"
+              }}
+            >
               Top Cyclers
-            {profiles.length > 0 ? (
-             profiles.map((profile) => (
-                <ProfileItem key={profile._id} profile={profile} />
-              ))
-              
-            ) : (
-              <h4> No profiles made yet...</h4>
-            )}
+              {profiles.length > 0 ? (
+                profiles.map((profile) => (
+                  <ProfileItem key={profile._id} profile={profile} />
+                ))
+              ) : (
+                <h4> No profiles made yet...</h4>
+              )}
             </Card>
-            <Card style={{backgroundColor:"#d1cdcd", maxWidth:"30%", margin:"0%"}}>
+            <Card
+              style={{
+                backgroundColor: "#d1cdcd",
+                maxWidth: "30%",
+                margin: "1%",
+                padding: "1%"
+              }}
+            >
               Top Swimmers
-            {profiles.length > 0 ? (
-              profiles.map((profile) => (
-                <ProfileItem key={profile._id} profile={profile} />
-              ))
-              
-            ) : (
-              <h4> No profiles made yet...</h4>
-            )}
+              {profiles.length > 0 ? (
+                profiles.map((profile) => (
+                  <ProfileItem key={profile._id} profile={profile} />
+                ))
+              ) : (
+                <h4> No profiles made yet...</h4>
+              )}
             </Card>
-            <Card style={{backgroundColor:"#d1cdcd", maxWidth:"30%", margin:"0%"}}>
+            <Card
+              style={{
+                backgroundColor: "#d1cdcd",
+                maxWidth: "30%",
+                margin: "1%",
+                padding: "1%"
+              }}
+            >
               Top Horse Riders
-            {profiles.length > 0 ? (
-              profiles.map((profile) => (
-                <ProfileItem key={profile._id} profile={profile} />
-              ))
-              
-            ) : (
-              <h4> No profiles made yet...</h4>
-            )}
+              {profiles.length > 0 ? (
+                profiles.map((profile) => (
+                  <ProfileItem key={profile._id} profile={profile} />
+                ))
+              ) : (
+                <h4> No profiles made yet...</h4>
+              )}
             </Card>
           </div>
         </Fragment>

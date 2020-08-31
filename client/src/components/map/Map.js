@@ -41,6 +41,21 @@ const Map = ({ totalStats, title }) => {
           <i className="fas fa-flag" style={{ color: "#00aaff" }}></i>
         </Marker>
         <Source id="loaded-data" type="geojson" data={geojson}>
+        <Layer
+            id="total"
+            type="circle"
+            paint={{
+              "circle-radius": {
+                stops: [
+                  [0, 0],
+                  [20, metersToPixelsAtMaxZoom((horseRiding + +run + +walk + +cycle + +swim) * 1000, 52.928792)],
+                ],
+                base: 2,
+              },
+              "circle-color": "grey",
+              "circle-opacity": 0.55,
+            }}
+          />
           <Layer
             id="walk"
             type="circle"
@@ -122,35 +137,42 @@ const Map = ({ totalStats, title }) => {
       </ReactMapGL>
       <div style={{ justifyContent: "center", marginLeft:"auto", marginRight:"auto", width:"100%" }}>
         <div style={{ display: "inline-block" }}>
-          <p>
+          <>
           <div className="key" style={{background:"red"}}></div>
             <i className="fas fa-walking"></i>: {walk}
-          </p>
+          </>
         </div>{" "}
         <div style={{ display: "inline-block" }}>
-          <p>
+          <>
           <div className="key" style={{background:"green"}}></div>
             <i className="fas fa-running"></i>: {run}
-          </p>
+          </>
         </div>{" "}
         <div style={{ display: "inline-block" }}>
-          <p>
+          <>
           <div className="key" style={{background:"blue"}}></div>
             <i className="fas fa-biking"></i>: {cycle}
-          </p>
+          </>
         </div>{" "}
         <div style={{ display: "inline-block" }}>
-          <p>
+          <>
           <div className="key" style={{background:"yellow"}}></div>
             <i className="fas fa-swimmer"></i>: {swim}
-          </p>
+          </>
         </div>
         <div style={{ display: "inline-block" }}>
-          <p>
+          <>
           <div className="key" style={{background:"orange"}}></div>
             <i className="fas fa-horse"></i>: {horseRiding}
-          </p>
+          </>
+          
         </div>
+          <div style={{display: "inline-block"}}> 
+        <>
+          <div className="key" style={{background:"grey"}}></div>
+            <i className="fas fa-globe"></i>: {horseRiding + +run + +walk + +cycle + +swim}
+          </>
+          </div>
       </div>
     </Fragment>
   );
