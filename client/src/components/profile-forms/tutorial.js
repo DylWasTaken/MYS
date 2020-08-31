@@ -36,6 +36,7 @@ const Tutorial = ({ createProfile, history }) => {
         <div style={{ width: "inherit", height: "50vh", margin: "5%" }}>
           <Map totalStats={totalStats} />
         </div>
+        <br />
         <div>
         Thank you for signing up to take part in the virtual Mind Your Step 2020{" "}
         </div>
