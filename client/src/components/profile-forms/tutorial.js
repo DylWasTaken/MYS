@@ -13,12 +13,12 @@ const Tutorial = ({ createProfile, history }) => {
     swim: 0,
     horseRiding: 0,
   });
-  const startStats= {
-    walk: 0.00,
-    run: 0.00,
-    cycle: 0.00,
-    swim: 0.00,
-    horseRiding: 0.00,
+  const startStats = {
+    walk: 0.0,
+    run: 0.0,
+    cycle: 0.0,
+    swim: 0.0,
+    horseRiding: 0.0,
   };
 
   const onSubmit = (e) => {
@@ -32,27 +32,35 @@ const Tutorial = ({ createProfile, history }) => {
   return (
     <Fragment>
       <div>
-      <h1 className="large text-primary">Tutorial</h1>
+        <h1 className="large text-primary">Tutorial</h1>
         <div style={{ width: "inherit", height: "50vh", margin: "5%" }}>
-          <Map totalStats={totalStats} />
+          <Map totalStats={totalStats} title={"Tutorial"} />
         </div>
         <br />
         <div>
-        Thank you for signing up to take part in the virtual Mind Your Step 2020{" "}
+          Thank you for signing up to take part in the virtual Mind Your Step
+          2020{" "}
         </div>
         <div>
-        To use the distance tracker firstly record how far you have travelled either walking, running, cycling, horse riding or swimming in km using your own device. Then on the ‘add activity’ page enter the distance into the appropriate box (as shown below) and the distance will be added to your cumulative total.
+          To use the distance tracker firstly record how far you have travelled
+          either walking, running, cycling, horse riding or swimming in km using
+          your own device. Then on the ‘add activity’ page enter the distance
+          into the appropriate box (as shown below) and the distance will be
+          added to your cumulative total.
         </div>
         <div>
-        The leader board will show the walkers, runners, cyclists, swimmers and runners who have travelled the greatest cumulative distance.
+          The leader board will show the walkers, runners, cyclists, swimmers
+          and runners who have travelled the greatest cumulative distance.
         </div>
         <div>
-        The tracker will also keep a record of our cumulative distance so that we can celebrate milestone achievements.
+          The tracker will also keep a record of our cumulative distance so that
+          we can celebrate milestone achievements.
         </div>
         <div>
-        We will be celebrating along the way the top distances travelled and some opportunities for spot prizes that will be announced through our Facebook page.
+          We will be celebrating along the way the top distances travelled and
+          some opportunities for spot prizes that will be announced through our
+          Facebook page.
         </div>
-        
       </div>
 
       <div>
@@ -69,7 +77,7 @@ const Tutorial = ({ createProfile, history }) => {
               {" : "}
               <input
                 type="number"
-                 step="0.01"
+                step="0.01"
                 name="walk"
                 min="1"
                 max="43"
@@ -82,7 +90,7 @@ const Tutorial = ({ createProfile, history }) => {
               {" : "}
               <input
                 type="number"
-                 step="0.01"
+                step="0.01"
                 name="run"
                 min="1"
                 max="43"
@@ -95,7 +103,7 @@ const Tutorial = ({ createProfile, history }) => {
               {" : "}
               <input
                 type="number"
-                 step="0.01"
+                step="0.01"
                 name="cycle"
                 min="1"
                 max="43"
@@ -108,7 +116,7 @@ const Tutorial = ({ createProfile, history }) => {
               {" : "}
               <input
                 type="number"
-                 step="0.01"
+                step="0.01"
                 name="swim"
                 min="1"
                 max="43"
@@ -121,7 +129,7 @@ const Tutorial = ({ createProfile, history }) => {
               {" : "}
               <input
                 type="number"
-                 step="0.01"
+                step="0.01"
                 name="horseRiding"
                 min="1"
                 max="43"

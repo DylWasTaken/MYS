@@ -41,7 +41,6 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-
 //@route    Get api/log
 //desc      get all logs
 //@access   Private
@@ -50,36 +49,37 @@ router.get("/all", auth, async (req, res) => {
     const logs = await Log.aggregate([
       [
         {
-          '$project': {
-            '_id': 0, 
-            'walk': 1, 
-            'run': 1, 
-            'cycle': 1, 
-            'swim': 1, 
-            'horseRiding': 1
-          }
-        }, {
-          '$group': {
-            '_id': null, 
-            'walk': {
-              '$sum': '$walk'
-            }, 
-            'run': {
-              '$sum': '$run'
-            }, 
-            'cycle': {
-              '$sum': '$cycle'
-            }, 
-            'swim': {
-              '$sum': '$swim'
-            }, 
-            'horseRiding': {
-              '$sum': '$horseRiding'
-            }
-          }
-        }
-      ]
-    ])
+          $project: {
+            _id: 0,
+            walk: 1,
+            run: 1,
+            cycle: 1,
+            swim: 1,
+            horseRiding: 1,
+          },
+        },
+        {
+          $group: {
+            _id: 1,
+            walk: {
+              $sum: "$walk",
+            },
+            run: {
+              $sum: "$run",
+            },
+            cycle: {
+              $sum: "$cycle",
+            },
+            swim: {
+              $sum: "$swim",
+            },
+            horseRiding: {
+              $sum: "$horseRiding",
+            },
+          },
+        },
+      ],
+    ]);
     res.json(logs);
   } catch (error) {
     console.error(err.message);
@@ -87,14 +87,12 @@ router.get("/all", auth, async (req, res) => {
   }
 });
 
-
 //@route    delete api/log
 //desc      delete individual log
 //@access   Private
-router.delete('/:id', auth, async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
   try {
-    const logs = await Log.findById( req.params.id);
-
+    const logs = await Log.findById(req.params.id);
 
     if (!logs) {
       return res.status(404).json({ msg: "Log not found" });
@@ -106,7 +104,6 @@ router.delete('/:id', auth, async (req, res) => {
     await logs.remove();
     res.json(logs);
   } catch (error) {
-
     console.error(err.message);
     //    res.status(500).send("Server Error");
   }
