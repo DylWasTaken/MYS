@@ -49,7 +49,7 @@ const Dashboard = ({
               marginBottom: "5%",
             }}
           >
-            {total.map((post) => (
+            {logs.map((post) => (
               <DashboardMap key={post._id} post={post} />
             ))}
           </div>

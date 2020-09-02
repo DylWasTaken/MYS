@@ -33,6 +33,7 @@ const Tutorial = ({ createProfile, history }) => {
     <Fragment>
       <div>
         <h1 className="large text-primary">Tutorial</h1>
+        <small style={{color:"GrayText"}}> This is a tutorial page explaining the rules, to input data, please use the add activity page</small>
         <div style={{ width: "inherit", height: "50vh", margin: "5%" }}>
           <Map totalStats={totalStats} title={"Tutorial"} />
         </div>

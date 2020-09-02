@@ -30,14 +30,14 @@ const TeamItem = ({
       <br />
       <p>
         {" "}
-        So far as a team we've traveled a total distance of: {totalDist} km
+        So far as a team we've traveled a total distance of: {(totalDist).toFixed(2)} km
       </p>
       <div>
-        <p>We walked: {walk}km</p>
-        <p>We run: {run}km</p>
-        <p>We cycled: {cycle}km</p>
-        <p>We swam: {swim}km</p>
-        <p>And rode horse for : {horseRiding}km</p>
+        <p>We walked: {walk.toFixed(2)}km</p>
+        <p>We run: {run.toFixed(2)}km</p>
+        <p>We cycled: {cycle.toFixed(2)}km</p>
+        <p>We swam: {swim.toFixed(2)}km</p>
+        <p>And rode horse for : {horseRiding.toFixed(2)}km</p>
         Well done everyone :)
       </div>
     </Fragment>

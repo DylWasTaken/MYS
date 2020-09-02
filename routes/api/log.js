@@ -114,39 +114,40 @@ router.delete("/:id", auth, async (req, res) => {
 //@access   Private
 router.get("/UT", auth, async (req, res) => {
   try {
-    const totals = await Log.aggregate([
-      [
-        {
-          $project: {
-            _id: 0,
-            walk: 1,
-            run: 1,
-            cycle: 1,
-            swim: 1,
-            horseRiding: 1,
-          },
-        },
-        {
-          $group: {
-            _id:req.user.id,
-            walk: {
-              $sum: "$walk",
-            },
-            run: {
-              $sum: "$run",
-            },
-            cycle: {
-              $sum: "$cycle",
-            },
-            swim: {
-              $sum: "$swim",
-            },
-            horseRiding: {
-              $sum: "$horseRiding",
-            },
-          },
-        },
-      ],
+    const totals = await Log.aggregate( [
+      {
+        '$match': {
+          'user': req.user.id
+        }
+      }, {
+        '$project': {
+          '_id': 0, 
+          'walk': 1, 
+          'run': 1, 
+          'cycle': 1, 
+          'swim': 1, 
+          'horseRiding': 1
+        }
+      }, {
+        '$group': {
+          '_id': null, 
+          'walk': {
+            '$sum': '$walk'
+          }, 
+          'run': {
+            '$sum': '$run'
+          }, 
+          'cycle': {
+            '$sum': '$cycle'
+          }, 
+          'swim': {
+            '$sum': '$swim'
+          }, 
+          'horseRiding': {
+            '$sum': '$horseRiding'
+          }
+        }
+      }
     ]);
     res.json(totals);
   } catch (error) {
