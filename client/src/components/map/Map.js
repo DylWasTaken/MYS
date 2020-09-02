@@ -139,31 +139,31 @@ const Map = ({ totalStats, title }) => {
         <div style={{ display: "inline-block" }}>
           <>
           <div className="key" style={{background:"red"}}></div>
-            <i className="fas fa-walking"></i>: {walk.toFixed(2)}
+            <i className="fas fa-walking"></i>: {walk}
           </>
         </div>{" "}
         <div style={{ display: "inline-block" }}>
           <>
           <div className="key" style={{background:"green"}}></div>
-            <i className="fas fa-running"></i>: {run.toFixed(2)}
+            <i className="fas fa-running"></i>: {run}
           </>
         </div>{" "}
         <div style={{ display: "inline-block" }}>
           <>
           <div className="key" style={{background:"blue"}}></div>
-            <i className="fas fa-biking"></i>: {cycle.toFixed(2)}
+            <i className="fas fa-biking"></i>: {cycle}
           </>
         </div>{" "}
         <div style={{ display: "inline-block" }}>
           <>
           <div className="key" style={{background:"yellow"}}></div>
-            <i className="fas fa-swimmer"></i>: {swim.toFixed(2)}
+            <i className="fas fa-swimmer"></i>: {swim}
           </>
         </div>
         <div style={{ display: "inline-block" }}>
           <>
           <div className="key" style={{background:"orange"}}></div>
-            <i className="fas fa-horse"></i>: {horseRiding.toFixed(2)}
+            <i className="fas fa-horse"></i>: {horseRiding}
           </>
           
         </div>
