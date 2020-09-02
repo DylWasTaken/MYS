@@ -1,12 +1,4 @@
-import {
-  GET_POSTS,
-  POST_ERROR,
-  ADD_POST,
-  GET_POSTS_BY_USER,
-  DELETE_POST,
-  GET_ALL_POSTS,
-  GET_TOTAL_BY_USER,
-} from "../actions/types";
+import { GET_POSTS, POST_ERROR, ADD_POST, GET_POSTS_BY_USER, DELETE_POST, GET_ALL_POSTS } from "../actions/types";
 
 const intialState = {
   logs: [],
@@ -26,18 +18,12 @@ export default function (state = intialState, action) {
         logs: payload,
         loading: false,
       };
-    case GET_TOTAL_BY_USER:
-      return {
-        ...state,
-        total: payload,
-        loading: false,
-      };
     case GET_POSTS_BY_USER:
-      return {
-        ...state,
-        logs_by_user: payload,
-        loading: false,
-      };
+        return{
+          ...state,
+          logs_by_user: payload,
+          loading: false
+        }
     case ADD_POST: {
       return {
         ...state,
@@ -46,11 +32,11 @@ export default function (state = intialState, action) {
       };
     }
     case DELETE_POST:
-      return {
+      return{
         ...state,
-        logs: state.logs.filter((log) => log._id !== payload),
-        loading: false,
-      };
+        logs: state.logs.filter(log => log._id !== payload),
+        loading: false
+      }
 
     case POST_ERROR:
       return {

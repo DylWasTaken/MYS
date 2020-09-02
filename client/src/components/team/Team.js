@@ -5,7 +5,10 @@ import Spinner from "../layout/Spinner";
 import { getAllPosts } from "../../actions/post";
 import TeamItem from "./TeamItem";
 
-const Team = ({ getAllPosts, post: { logs, loading } }) => {
+const Team = ({
+  getAllPosts,
+  post: { logs, loading, _id, walk, run, cycle, swim, horseRiding },
+}) => {
   useEffect(() => {
     getAllPosts();
   }, [getAllPosts]);

@@ -12,7 +12,9 @@ const DashboardActions = ({
       {/*   <Link to="/edit-profile" class="btn btn-light">  
                 Edit profile
     </Link>*/}
-
+      <Link to={`/profile/${_id}`} className="btn btn-light">
+        View my progress
+      </Link>
       <Link to="/team" className="btn btn-light">
         View everyone's progress
       </Link>
