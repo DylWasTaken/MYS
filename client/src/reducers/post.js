@@ -1,8 +1,9 @@
-import { GET_POSTS, POST_ERROR, ADD_POST, GET_POSTS_BY_USER, DELETE_POST, GET_ALL_POSTS } from "../actions/types";
+import { GET_POSTS, POST_ERROR, ADD_POST, GET_POSTS_BY_USER, DELETE_POST, GET_ALL_POSTS, GET_POST_TOTALS } from "../actions/types";
 
 const intialState = {
   logs: [],
   log: null,
+  totals:[],
   loading: true,
   error: {},
 };

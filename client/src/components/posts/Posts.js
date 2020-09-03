@@ -39,6 +39,7 @@ const Posts = ({ profile: {profile, loading}, addPost, setAlert, createProfile ,
           paddingBottom: "11%",
         }}
       >
+         <h1 className="large text-primary">Add Activity</h1>
         <Map totalStats={totalStats} title={"Add Data"} />
       </div>
       <form onSubmit={(e) => onSubmit(e)}>

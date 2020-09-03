@@ -139,7 +139,7 @@ const Tutorial = ({ createProfile, history }) => {
               <>km</>
             </div>
           </div>
-          <input type="submit" className="btn btn-primary" value="Submit" />
+          <input type="submit" className="btn btn-primary" value="Submit"  disabled="true"/>
         </form>
       </div>
     </Fragment>
