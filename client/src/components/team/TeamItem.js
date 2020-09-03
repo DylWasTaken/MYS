@@ -37,7 +37,7 @@ const TeamItem = ({
         <p>We run: {run.toFixed(2)}km</p>
         <p>We cycled: {cycle.toFixed(2)}km</p>
         <p>We swam: {swim.toFixed(2)}km</p>
-        <p>And rode horse for : {horseRiding.toFixed(2)}km</p>
+        <p>And rode horses for : {horseRiding.toFixed(2)}km</p>
         Well done everyone :)
       </div>
     </Fragment>

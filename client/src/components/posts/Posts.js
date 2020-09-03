@@ -24,6 +24,7 @@ const Posts = ({ profile: {profile, loading}, addPost, setAlert, createProfile ,
   const onSubmit = (e) => {
     addPost({ walk, run, cycle, swim, horseRiding });
     createProfile({totalStats, history});
+    window.location.reload(false);
     setAlert("Activity added", "success");
   };
 

@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
-//const { check, validationResult } = require("express-validator");
 const auth = require("../../middleware/auth");
 const User = require("../../models/Users");
-//const Profile = require("../../models/Profile");
 const Log = require("../../models/Logs");
 
 //@route    POST api/log
@@ -47,7 +45,7 @@ router.get("/", auth, async (req, res) => {
 router.get("/all", auth, async (req, res) => {
   try {
     const logs = await Log.aggregate([
-      [
+      
         {
           $project: {
             _id: 0,
@@ -79,7 +77,7 @@ router.get("/all", auth, async (req, res) => {
           },
         },
       ],
-    ]);
+    );
     res.json(logs);
   } catch (error) {
     console.error(err.message);
@@ -109,15 +107,15 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
-//@route    Get api/log
-//desc      get all logs
+//@route    Get api/log/me
+//desc      get current users totals
 //@access   Private
-router.get("/UT", auth, async (req, res) => {
+router.get('/me', auth, async (req, res) => {
   try {
-    const totals = await Log.aggregate( [
+    const totals = await Log.aggregate([
       {
         '$match': {
-          'user': req.user.id
+          'user': new ObjectId('5f42c047146a820017d24378')
         }
       }, {
         '$project': {
@@ -152,7 +150,7 @@ router.get("/UT", auth, async (req, res) => {
     res.json(totals);
   } catch (error) {
     console.error(err.message);
-    //    res.status(500).send("Server Error");
+    res.status(500).send("Server Error");
   }
 });
 

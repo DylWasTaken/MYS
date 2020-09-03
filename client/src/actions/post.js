@@ -1,6 +1,13 @@
 import axios from "axios";
-import { GET_POSTS, POST_ERROR, ADD_POST, DELETE_POST, GET_ALL_POSTS } from "./types";
-import {setAlert} from "./alert";
+import {
+  GET_POSTS,
+  POST_ERROR,
+  ADD_POST,
+  DELETE_POST,
+  GET_ALL_POSTS,
+  GET_POST_TOTALS,
+} from "./types";
+import { setAlert } from "./alert";
 
 //Get users posts
 export const getPosts = () => async (dispatch) => {
@@ -19,14 +26,15 @@ export const getPosts = () => async (dispatch) => {
 };
 
 //Delete posts
-export const deletePost = id => async (dispatch) => {
+export const deletePost = (id) => async (dispatch) => {
   try {
     const res = await axios.delete(`/api/log/${id}`);
     dispatch({
       type: DELETE_POST,
-      payload:id,
+      payload: id,
     });
-    dispatch(setAlert('Activity Removed', 'success'))
+    window.location.reload(false);
+    dispatch(setAlert("Activity Removed", "success"));
   } catch (err) {
     dispatch({
       type: POST_ERROR,
@@ -59,7 +67,6 @@ export const addPost = ({ walk, run, cycle, swim, horseRiding }) => async (
       type: ADD_POST,
       payload: res.data,
     });
-   
   } catch (err) {
     dispatch({
       type: POST_ERROR,
@@ -74,6 +81,22 @@ export const getAllPosts = () => async (dispatch) => {
     const res = await axios.get("/api/log/all");
     dispatch({
       type: GET_ALL_POSTS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//Get post totals for user
+export const getPostTotals = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/log/me");
+    dispatch({
+      type: GET_POST_TOTALS,
       payload: res.data,
     });
   } catch (err) {

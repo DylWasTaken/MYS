@@ -6,8 +6,8 @@ import Spinner from "../layout/Spinner";
 import { Link } from "react-router-dom";
 import DashboardActions from "./DashboardActions";
 import Map from "../map/Map";
-import { getPosts, deletePost } from "../../actions/post";
-import Card  from "@material-ui/core/Card";
+import { getPosts, deletePost, getPostTotals } from "../../actions/post";
+import Card from "@material-ui/core/Card";
 import Moment from "react-moment";
 import { Button } from "@material-ui/core";
 
@@ -17,7 +17,8 @@ const Dashboard = ({
   profile: { profile, loading },
   deletePost,
   getPosts,
-  post: {logs},
+  post: { logs },
+  getPostTotals,
 }) => {
   useEffect(() => {
     getCurrentProfile();
@@ -25,6 +26,10 @@ const Dashboard = ({
   useEffect(() => {
     getPosts();
   }, [getPosts]);
+
+  useEffect(() => {
+    getPostTotals();
+  }, [getPostTotals]);
 
   return loading && profile === null ? (
     <Spinner />
@@ -44,13 +49,13 @@ const Dashboard = ({
               marginBottom: "5%",
             }}
           >
-       
-            <Map totalStats={profile}  title={"Your distance covered"} />
-         
+            <Map totalStats={profile} title={"Your distance covered"} />
           </div>
-            <br />
-            <Card style={{backgroundColor:"#d1cdcd", marginTop:"10%"}}>
-              <table style={{width:"100%"}}>
+          <br />
+          <Card style={{ backgroundColor: "#d1cdcd", marginTop: "10%" }}>
+            <table style={{ width: "100%" }}>
+              <thead>
+            <tr>
               <th>Walk</th>
               <th>Run</th>
               <th>Cycle</th>
@@ -58,22 +63,41 @@ const Dashboard = ({
               <th>Horse Riding</th>
               <th>Date</th>
               <th>Remove?</th>
-
-             {logs.map(log => (
-               <tr>
-                 <td style={{textAlign:"center", verticalAlign:"middle"}}>{log.walk}</td>
-                 <td style={{textAlign:"center", verticalAlign:"middle"}}>{log.run}</td>
-                 <td style={{textAlign:"center", verticalAlign:"middle"}}>{log.cycle}</td>
-                 <td style={{textAlign:"center", verticalAlign:"middle"}}>{log.swim}</td>
-                 <td style={{textAlign:"center", verticalAlign:"middle"}}>{log.horseRiding}</td>
-                 <td style={{textAlign:"center", verticalAlign:"middle"}}><Moment format="DD/MM/YY">{log.date}</Moment></td>
-                 <td style={{textAlign:"center", verticalAlign:"middle"}}><Button onClick={e => deletePost(log._id)}><i className="fas fa-trash"></i></Button></td>
-               </tr>
-             ))}
-              </table>
-            </Card>
-            <br />
-          <DashboardActions profile={profile}  />
+              </tr>
+              </thead>
+              <tbody>
+              {logs.map((log) => (
+                <tr>
+                  <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                    {log.walk}
+                  </td>
+                  <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                    {log.run}
+                  </td>
+                  <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                    {log.cycle}
+                  </td>
+                  <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                    {log.swim}
+                  </td>
+                  <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                    {log.horseRiding}
+                  </td>
+                  <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                    <Moment format="DD/MM/YY">{log.date}</Moment>
+                  </td>
+                  <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                    <Button onClick={(e) => deletePost(log._id)}>
+                      <i className="fas fa-trash"></i>
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+              </tbody>
+            </table>
+          </Card>
+          <br />
+          <DashboardActions profile={profile} />
         </>
       ) : (
         <Fragment>
@@ -93,15 +117,19 @@ Dashboard.propTypes = {
   profile: PropTypes.object.isRequired,
   getPosts: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
-  deletePost: PropTypes.func.isRequired
+  deletePost: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
   profile: state.profile,
   post: state.post,
+  logTotals: state.logTotals
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, getPosts, deletePost })(
-  Dashboard
-);
+export default connect(mapStateToProps, {
+  getCurrentProfile,
+  getPosts,
+  deletePost,
+  getPostTotals
+})(Dashboard);
