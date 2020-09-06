@@ -28,8 +28,8 @@ const TeamItem = ({
         <Map totalStats={totalStats} title={"Team Total"} />
       </div>
       <br />
-      <p>
-        {" "}
+      <p style={{paddingTop:"5%"}}>
+
         So far as a team we've traveled a total distance of: {(totalDist).toFixed(2)} km
       </p>
       <div>

@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {Link, withRouter}  from "react-router-dom";
+import {withRouter}  from "react-router-dom";
 import { setAlert } from "../../actions/alert";
 import { addPost } from "../../actions/post";
 import Map from "../map/Map";

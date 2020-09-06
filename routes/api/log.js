@@ -44,6 +44,7 @@ router.get("/", auth, async (req, res) => {
 //@access   Private
 router.get("/all", auth, async (req, res) => {
   try {
+    
     const logs = await Log.aggregate([
       
         {
@@ -110,47 +111,51 @@ router.delete("/:id", auth, async (req, res) => {
 //@route    Get api/log/me
 //desc      get current users totals
 //@access   Private
-router.get('/me', auth, async (req, res) => {
+router.get("/me", auth, async (req, res) => {
+
   try {
-    const totals = await Log.aggregate([
-      {
-        '$match': {
-          'user': new ObjectId('5f42c047146a820017d24378')
-        }
-      }, {
-        '$project': {
-          '_id': 0, 
-          'walk': 1, 
-          'run': 1, 
-          'cycle': 1, 
-          'swim': 1, 
-          'horseRiding': 1
-        }
-      }, {
-        '$group': {
-          '_id': null, 
-          'walk': {
-            '$sum': '$walk'
-          }, 
-          'run': {
-            '$sum': '$run'
-          }, 
-          'cycle': {
-            '$sum': '$cycle'
-          }, 
-          'swim': {
-            '$sum': '$swim'
-          }, 
-          'horseRiding': {
-            '$sum': '$horseRiding'
+  
+    const logs = await Log.aggregate(
+      [
+        {
+          '$match': {
+            'user': user.id
+          }
+        }, {
+          '$project': {
+            '_id': 1, 
+            'walk': 1, 
+            'run': 1, 
+            'cycle': 1, 
+            'swim': 1, 
+            'horseRiding': 1
+          }
+        }, {
+          '$group': {
+            '_id': null, 
+            'walk': {
+              '$sum': '$walk'
+            }, 
+            'run': {
+              '$sum': '$run'
+            }, 
+            'cycle': {
+              '$sum': '$cycle'
+            }, 
+            'swim': {
+              '$sum': '$swim'
+            }, 
+            'horseRiding': {
+              '$sum': '$horseRiding'
+            }
           }
         }
-      }
-    ]);
-    res.json(totals);
+      ]
+    );
+    res.json(logs);
   } catch (error) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    console.log("help me")
   }
 });
 

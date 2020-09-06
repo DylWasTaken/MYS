@@ -38,7 +38,7 @@ const Tutorial = ({ createProfile, history }) => {
           <Map totalStats={totalStats} title={"Tutorial"} />
         </div>
         <br />
-        <div>
+        <div style={{paddingTop:"5%"}}>
           Thank you for signing up to take part in the virtual Mind Your Step
           2020{" "}
         </div>
