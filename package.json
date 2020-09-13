@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "mapbox-gl-draw-circle": "^1.1.2",
     "material-table": "^1.69.0",
+    "mongodb": "^3.6.2",
     "mongoose": "^5.9.24",
     "react-map-gl": "^5.2.7",
     "react-scripts": "^3.4.1"

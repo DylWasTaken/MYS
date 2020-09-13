@@ -5,7 +5,7 @@ import { getCurrentProfile } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
 import { Link } from "react-router-dom";
 import DashboardActions from "./DashboardActions";
-import Map from "../map/Map";
+import DashboardMap from "./DashboardMap";
 import { getPosts, deletePost, getPostTotals } from "../../actions/post";
 import Card from "@material-ui/core/Card";
 import Moment from "react-moment";
@@ -17,7 +17,7 @@ const Dashboard = ({
   profile: { profile, loading },
   deletePost,
   getPosts,
-  post: { logs },
+  post: { logs, totals },
   getPostTotals,
 }) => {
   useEffect(() => {
@@ -30,6 +30,7 @@ const Dashboard = ({
   useEffect(() => {
     getPostTotals();
   }, [getPostTotals]);
+
 
   return loading && profile === null ? (
     <Spinner />
@@ -49,7 +50,9 @@ const Dashboard = ({
               marginBottom: "5%",
             }}
           >
-            <Map totalStats={profile} title={"Your distance covered"} />
+         {totals.map((post) => (
+              <DashboardMap key={post._id} post={post} />
+            ))}
           </div>
           <br />
           <Card style={{ backgroundColor: "#d1cdcd", marginTop: "10%" }}>
@@ -118,13 +121,16 @@ Dashboard.propTypes = {
   getPosts: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
   deletePost: PropTypes.func.isRequired,
+  getPostTotals: PropTypes.func.isRequired,
+
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
   profile: state.profile,
   post: state.post,
-  logTotals: state.logTotals
+
+ 
 });
 
 export default connect(mapStateToProps, {

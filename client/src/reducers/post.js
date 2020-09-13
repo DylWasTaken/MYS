@@ -30,7 +30,7 @@ export default function (state = intialState, action) {
     case GET_POST_TOTALS:
       return {
         ...state,
-        logTotals: payload,
+        totals: payload,
       };
     case GET_POSTS_BY_USER:
       return {

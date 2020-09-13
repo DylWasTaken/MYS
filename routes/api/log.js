@@ -3,6 +3,7 @@ const router = express.Router();
 const auth = require("../../middleware/auth");
 const User = require("../../models/Users");
 const Log = require("../../models/Logs");
+const { ObjectId } = require("mongodb");
 
 //@route    POST api/log
 //desc      log activity
@@ -44,41 +45,38 @@ router.get("/", auth, async (req, res) => {
 //@access   Private
 router.get("/all", auth, async (req, res) => {
   try {
-    
     const logs = await Log.aggregate([
-      
-        {
-          $project: {
-            _id: 0,
-            walk: 1,
-            run: 1,
-            cycle: 1,
-            swim: 1,
-            horseRiding: 1,
+      {
+        $project: {
+          _id: 0,
+          walk: 1,
+          run: 1,
+          cycle: 1,
+          swim: 1,
+          horseRiding: 1,
+        },
+      },
+      {
+        $group: {
+          _id: 1,
+          walk: {
+            $sum: "$walk",
+          },
+          run: {
+            $sum: "$run",
+          },
+          cycle: {
+            $sum: "$cycle",
+          },
+          swim: {
+            $sum: "$swim",
+          },
+          horseRiding: {
+            $sum: "$horseRiding",
           },
         },
-        {
-          $group: {
-            _id: 1,
-            walk: {
-              $sum: "$walk",
-            },
-            run: {
-              $sum: "$run",
-            },
-            cycle: {
-              $sum: "$cycle",
-            },
-            swim: {
-              $sum: "$swim",
-            },
-            horseRiding: {
-              $sum: "$horseRiding",
-            },
-          },
-        },
-      ],
-    );
+      },
+    ]);
     res.json(logs);
   } catch (error) {
     console.error(err.message);
@@ -113,49 +111,49 @@ router.delete("/:id", auth, async (req, res) => {
 //@access   Private
 router.get("/me", auth, async (req, res) => {
 
+
   try {
-  
-    const logs = await Log.aggregate(
-      [
-        {
-          '$match': {
-            'user': user.id
-          }
-        }, {
-          '$project': {
-            '_id': 1, 
-            'walk': 1, 
-            'run': 1, 
-            'cycle': 1, 
-            'swim': 1, 
-            'horseRiding': 1
-          }
-        }, {
-          '$group': {
-            '_id': null, 
-            'walk': {
-              '$sum': '$walk'
-            }, 
-            'run': {
-              '$sum': '$run'
-            }, 
-            'cycle': {
-              '$sum': '$cycle'
-            }, 
-            'swim': {
-              '$sum': '$swim'
-            }, 
-            'horseRiding': {
-              '$sum': '$horseRiding'
-            }
-          }
-        }
-      ]
-    );
-    res.json(logs);
+    const totals= await Log.aggregate([
+      {
+        $match: {
+          user: ObjectId(req.user.id),
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          walk: 1,
+          run: 1,
+          cycle: 1,
+          swim: 1,
+          horseRiding: 1,
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          walk: {
+            $sum: "$walk",
+          },
+          run: {
+            $sum: "$run",
+          },
+          cycle: {
+            $sum: "$cycle",
+          },
+          swim: {
+            $sum: "$swim",
+          },
+          horseRiding: {
+            $sum: "$horseRiding",
+          },
+        },
+      },
+    ]);
+    res.json(totals);
   } catch (error) {
     console.error(err.message);
-    console.log("help me")
+    console.log("help me");
   }
 });
 
