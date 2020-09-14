@@ -6,10 +6,20 @@ import {
   DELETE_POST,
   GET_ALL_POSTS,
   GET_POST_TOTALS,
+  GET_WALK_LEADERS,
+  GET_RUN_LEADERS,
+  GET_CYCLE_LEADERS,
+  GET_SWIM_LEADERS,
+  GET_HR_LEADERS,
 } from "../actions/types";
 
 const intialState = {
   logs: [],
+  WL: [],
+  RL: [],
+  SL: [],
+  CL: [],
+  HRL: [],
   log: null,
   totals: [],
   loading: true,
@@ -37,6 +47,31 @@ export default function (state = intialState, action) {
         ...state,
         logs_by_user: payload,
         loading: false,
+      };
+    case GET_WALK_LEADERS:
+      return {
+        ...state,
+        WL: payload,
+      };
+    case GET_RUN_LEADERS:
+      return {
+        ...state,
+        RL: payload,
+      };
+    case GET_CYCLE_LEADERS:
+      return {
+        ...state,
+        CL: payload,
+      };
+    case GET_SWIM_LEADERS:
+      return {
+        ...state,
+        SL: payload,
+      };
+    case GET_HR_LEADERS:
+      return {
+        ...state,
+        HRL: payload,
       };
     case ADD_POST: {
       return {

@@ -23,7 +23,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Link to="/leaderboard">
           {" "}
           <i className="fas fa-fire-alt"></i>
-          <span className="hide-sm"> Leader board</span>
+          <span className="hide-sm"> Leader boards</span>
         </Link>
       </li>
       <li>

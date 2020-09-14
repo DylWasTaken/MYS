@@ -6,6 +6,11 @@ import {
   DELETE_POST,
   GET_ALL_POSTS,
   GET_POST_TOTALS,
+  GET_WALK_LEADERS,
+  GET_RUN_LEADERS,
+  GET_CYCLE_LEADERS,
+  GET_SWIM_LEADERS,
+  GET_HR_LEADERS
 } from "./types";
 import { setAlert } from "./alert";
 
@@ -106,3 +111,85 @@ export const getPostTotals = () => async (dispatch) => {
     });
   }
 };
+
+//Get walk leaders stats
+export const GWL = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/log/walk");
+    dispatch({
+      type: GET_WALK_LEADERS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//Get run leaders stats
+export const GRL = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/log/run");
+    dispatch({
+      type: GET_RUN_LEADERS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//Get cycle leaders stats
+export const GCL = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/log/cycle");
+    dispatch({
+      type: GET_CYCLE_LEADERS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//Get swim leaders stats
+export const GSL = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/log/swim");
+    dispatch({
+      type: GET_SWIM_LEADERS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//Get horseriding leaders stats
+export const GHL = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/log/hr");
+    dispatch({
+      type: GET_HR_LEADERS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+
