@@ -157,4 +157,251 @@ router.get("/me", auth, async (req, res) => {
   }
 });
 
+//@route    Get api/log/walk
+//desc     get top 5 walkers
+//@access   Private
+router.get("/walk", auth, async (req, res) => {
+
+
+  try {
+    const WL= await Log.aggregate([
+      {
+        '$group': {
+          '_id': '$user', 
+          'walk': {
+            '$sum': '$walk'
+          }, 
+          'run': {
+            '$sum': '$run'
+          }, 
+          'cycle': {
+            '$sum': '$cycle'
+          }, 
+          'swim': {
+            '$sum': '$swim'
+          }, 
+          'horseRiding': {
+            '$sum': '$horseRiding'
+          }
+        }
+      }, {
+        '$sort': {
+          'walk': -1
+        }
+      }, {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'user', 
+          'foreignField': ('id'), 
+          'as': 'ranked_names'
+        }
+      }, {
+        '$limit': 5
+      }
+    ]);
+    res.json(WL);
+  } catch (error) {
+    console.error(err.message);
+    console.log("help me");
+  }
+});
+
+
+
+//@route    Get api/log/run
+//desc     get top 5 runners
+//@access   Private
+router.get("/run", auth, async (req, res) => {
+
+
+  try {
+    const RL= await Log.aggregate([
+      {
+        '$group': {
+          '_id': '$user', 
+          'walk': {
+            '$sum': '$walk'
+          }, 
+          'run': {
+            '$sum': '$run'
+          }, 
+          'cycle': {
+            '$sum': '$cycle'
+          }, 
+          'swim': {
+            '$sum': '$swim'
+          }, 
+          'horseRiding': {
+            '$sum': '$horseRiding'
+          }
+        }
+      }, {
+        '$sort': {
+          'run': -1
+        }
+      }, {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'user', 
+          'foreignField': ('id'), 
+          'as': 'ranked_names'
+        }
+      }, {
+        '$limit': 5
+      }
+    ]);
+    res.json(RL);
+  } catch (error) {
+    console.error(err.message);
+    console.log("help me");
+  }
+});
+
+//@route    Get api/log/cycle
+//desc     get top 5 cyclers
+//@access   Private
+router.get("/cycle", auth, async (req, res) => {
+
+
+  try {
+    const CL= await Log.aggregate([
+      {
+        '$group': {
+          '_id': '$user', 
+          'walk': {
+            '$sum': '$walk'
+          }, 
+          'run': {
+            '$sum': '$run'
+          }, 
+          'cycle': {
+            '$sum': '$cycle'
+          }, 
+          'swim': {
+            '$sum': '$swim'
+          }, 
+          'horseRiding': {
+            '$sum': '$horseRiding'
+          }
+        }
+      }, {
+        '$sort': {
+          'cycle': -1
+        }
+      }, {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'user', 
+          'foreignField': ('id'), 
+          'as': 'ranked_names'
+        }
+      }, {
+        '$limit': 5
+      }
+    ]);
+    res.json(CL);
+  } catch (error) {
+    console.error(err.message);
+    console.log("help me");
+  }
+});
+
+//@route    Get api/log/swim
+//desc     get top 5 swimmers
+//@access   Private
+router.get("/swim", auth, async (req, res) => {
+
+
+  try {
+    const SL= await Log.aggregate([
+      {
+        '$group': {
+          '_id': '$user', 
+          'walk': {
+            '$sum': '$walk'
+          }, 
+          'run': {
+            '$sum': '$run'
+          }, 
+          'cycle': {
+            '$sum': '$cycle'
+          }, 
+          'swim': {
+            '$sum': '$swim'
+          }, 
+          'horseRiding': {
+            '$sum': '$horseRiding'
+          }
+        }
+      }, {
+        '$sort': {
+          'swim': -1
+        }
+      }, {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'user', 
+          'foreignField': ('id'), 
+          'as': 'ranked_names'
+        }
+      }, {
+        '$limit': 5
+      }
+    ]);
+    res.json(SL);
+  } catch (error) {
+    console.error(err.message);
+    console.log("help me");
+  }
+});
+
+//@route    Get api/log/hr
+//desc     get top 5 horseriders
+//@access   Private
+router.get("/hr", auth, async (req, res) => {
+
+
+  try {
+    const HRL= await Log.aggregate([
+      {
+        '$group': {
+          '_id': '$user', 
+          'walk': {
+            '$sum': '$walk'
+          }, 
+          'run': {
+            '$sum': '$run'
+          }, 
+          'cycle': {
+            '$sum': '$cycle'
+          }, 
+          'swim': {
+            '$sum': '$swim'
+          }, 
+          'horseRiding': {
+            '$sum': '$horseRiding'
+          }
+        }
+      }, {
+        '$sort': {
+          'horseRiding': -1
+        }
+      }, {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'user', 
+          'foreignField': ('id'), 
+          'as': 'ranked_names'
+        }
+      }, {
+        '$limit': 5
+      }
+    ]);
+    res.json(HRL);
+  } catch (error) {
+    console.error(err.message);
+    console.log("help me");
+  }
+});
+
 module.exports = router;
