@@ -37,14 +37,21 @@ router.post("/", auth, async (req, res) => {
   profileFields.swim = 0;
   profileFields.horseRiding = 0;
 
-  
   try {
     let profile = await Profile.findOne({ user: req.user.id });
     if (profile) {
       //update
       profile = await Profile.findOneAndUpdate(
         { user: req.user.id },
-        { $inc: {run:  req.body.run, walk: req.body.walk, cycle: req.body.cycle, swim: req.body.swim, horseRiding: req.body.horseRiding }  },
+        {
+          $inc: {
+            run: req.body.run,
+            walk: req.body.walk,
+            cycle: req.body.cycle,
+            swim: req.body.swim,
+            horseRiding: req.body.horseRiding,
+          },
+        },
         { new: true }
       );
       return res.json(profile);
@@ -65,10 +72,7 @@ router.post("/", auth, async (req, res) => {
 //@access public
 router.get("/", async (req, res) => {
   try {
-    const profiles = await Profile.find()
-      .populate("user", ["name", "avatar"])
-      .sort({ run: -1 })
-      .limit(5);
+    const profiles = await Profile.find().populate("user", ["name", "avatar"]);
     res.json(profiles);
   } catch (err) {
     console.error(err.message);

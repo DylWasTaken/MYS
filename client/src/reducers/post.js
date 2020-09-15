@@ -15,11 +15,11 @@ import {
 
 const intialState = {
   logs: [],
-  WL: [],
-  RL: [],
-  SL: [],
-  CL: [],
-  HRL: [],
+  wl: [],
+  rl: [],
+  sl: [],
+  cl: [],
+  hrl: [],
   log: null,
   totals: [],
   loading: true,
@@ -51,27 +51,28 @@ export default function (state = intialState, action) {
     case GET_WALK_LEADERS:
       return {
         ...state,
-        WL: payload,
+        wl: payload,
       };
     case GET_RUN_LEADERS:
       return {
         ...state,
-        RL: payload,
+        rl: payload,
       };
     case GET_CYCLE_LEADERS:
       return {
         ...state,
-        CL: payload,
+        cl: payload,
       };
     case GET_SWIM_LEADERS:
       return {
         ...state,
-        SL: payload,
+        sl: payload,
       };
     case GET_HR_LEADERS:
       return {
         ...state,
-        HRL: payload,
+        hrl: payload,
+        loading: false,
       };
     case ADD_POST: {
       return {
