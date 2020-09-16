@@ -14,7 +14,7 @@ const DashboardMap = ({
     swim,
     horseRiding,
   };
-  const totalDist = +walk + +run + +cycle + +swim + +horseRiding;
+
   return (
     <Fragment>
       <div
