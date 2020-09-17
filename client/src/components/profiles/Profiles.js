@@ -16,7 +16,7 @@ const Profiles = ({
   profile: { profiles, loading },
   post: { wl, rl, cl, sl, hrl },
 }) => {
-  const userNames = wl.rankedNames;
+  const users = wl[0];
 
   useEffect(() => {
     getProfiles();
